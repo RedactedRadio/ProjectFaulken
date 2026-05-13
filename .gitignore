@@ -1,0 +1,22 @@
+/.venv
+/Ollie.data
+/ProjectFaulken.code-workspace
+/Start_Game.py
+/__Depricated Files
+/__pycache__
+/classes.py
+/encrypt-decrypt_tool.py
+/gameTerminal.py
+/hashmap.txt
+/idunnu.py
+/joystickPlay.py
+/main.py
+/map.txt
+/mapBase.py
+/media
+/playerActions.py
+/sandbox.py
+/shortwave.mp3
+/testbed.py
+/venv
+/web

@@ -1,0 +1,3 @@
+/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles/faulken.dir
+/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles/edit_cache.dir
+/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles/rebuild_cache.dir

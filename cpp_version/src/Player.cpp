@@ -1,0 +1,255 @@
+#include "Player.h"
+#include "Game.h"
+#include "MapBase.h"
+#include <iostream>
+#include <fstream>
+#include <chrono>
+#include <thread>
+#include <filesystem>
+
+namespace fs = std::filesystem;
+
+Player::Player() {
+}
+
+void Player::printSlowText(const std::string& text, double delayMs) const {
+    for (char c : text) {
+        std::cout << c << std::flush;
+        std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(delayMs)));
+    }
+}
+
+void Player::inventory() const {
+    std::cout << "\nINVENTORY\n";
+    std::cout << "===========================================================\n\n";
+    for (const auto& [key, value] : loot) {
+        if (key == "paper") {
+            std::cout << key << "     -     An encrypted code is written on this small piece of paper.\n It reads... EPEbddftt.\n";
+        } else {
+            std::cout << key << "     -     " << value << "\n";
+        }
+    }
+}
+
+void Player::take(const std::map<std::string, std::string>& items) {
+    if (items.empty()) {
+        std::cout << "\nNothing to take from here. Let's keep moving.\n";
+        return;
+    }
+    
+    for (const auto& [key, value] : items) {
+        if (loot.find(key) != loot.end()) {
+            std::cout << "\nYou have the " << key << " already\n";
+        } else {
+            std::cout << "\nYou found the " << key << "!\n\n";
+            loot[key] = value;
+        }
+    }
+}
+
+void Player::map(int pos) const {
+    switch (pos) {
+        case 1: MapBase::mapZc(); break;
+        case 2: MapBase::mapZw(); break;
+        case 3: MapBase::mapZe(); break;
+        case 4: MapBase::mapCompS(); break;
+        case 5: MapBase::mapCompN(); break;
+        case 6: MapBase::mapSec(); break;
+        case 8: MapBase::mapOff(); break;
+        case 9: MapBase::mapStair(); break;
+        case 10: MapBase::mapCor(); break;
+        case 13: MapBase::mapSto(); break;
+        case 14: MapBase::mapCtrl(); break;
+        default:
+            std::cout << "The <map> is unavailable.\n";
+    }
+}
+
+void Player::help() const {
+    std::cout << "Available action commands:\n";
+    std::cout << "============================================================================================\n";
+    std::cout << "<use term>   - This command will allows you to use the Terminal, if there is one in the room.\n";
+    std::cout << "<look>       - This command looks around your current location,\n";
+    std::cout << "               and gives you a report of your surroundings.\n";
+    std::cout << "<scan_ID>    - Use this command to scan your ID Badge.\n";
+    std::cout << "<use term>   - This command allows you to sit at the terminal and interact with it.\n";
+    std::cout << "<take>       - This command allows you to add found items to your inventory.\n";
+    std::cout << "<help>       - Shows this screen\n";
+    std::cout << "<nav>        - Player Navigation based on current positioning.\n";
+    std::cout << "<load>       - Load a saved game.\n";
+    std::cout << "<save>       - Save Gameplay.\n";
+    std::cout << "<map>        - Display the map\n";
+    std::cout << "<quit>       - End game and exit.\n";
+}
+
+void Player::look(int pos, const std::map<std::string, std::string>& items, const std::map<std::string, std::string>& playerLoot) const {
+    std::cout << pos << "\n";
+    
+    // Check if all items in the room are already taken
+    bool allItemsTaken = true;
+    for (const auto& [key, value] : items) {
+        if (playerLoot.find(key) == playerLoot.end()) {
+            allItemsTaken = false;
+            break;
+        }
+    }
+    
+    if (allItemsTaken && !items.empty()) {
+        std::cout << "Nothing to see here. Let's keep moving.\n";
+        return;
+    }
+    
+    // Check if room has items - if not, show generic message
+    if (items.empty()) {
+        std::cout << "Nothing to see here. Let's keep moving.\n";
+        return;
+    }
+    
+    switch (pos) {
+        case 1:
+            std::cout << "You <look> down at the ID BADGE. You should <take> it!\n";
+            std::cout << "Hey! We really need to find the elevator.\n";
+            break;
+        case 2:
+            std::cout << "We are getting closer to the elevator. Let's keep going <west>.\n";
+            break;
+        case 3:
+            std::cout << "You see a FLASHLIGHT on the floor. You should <take> it!\n";
+            break;
+        case 4:
+            std::cout << "There is a computer TERMinal in the room just <north> of here.\n";
+            break;
+        case 5:
+            std::cout << "There is a computer TERMinal! Let's <use term>\n";
+            break;
+        case 6:
+            std::cout << "This must be the security center. You see a KEY! <take> it!\n";
+            std::cout << "The elevator is on the <north> wall of the security center!\n";
+            break;
+        case 8:
+            std::cout << "This room is filled with cubicles.\n";
+            std::cout << "A small piece of PAPER catches your eye. Better <take> it along.\n";
+            break;
+        case 9:
+            std::cout << "Ermmmm... The eighth and tenth floor access doors are locked!\n";
+            break;
+        case 13:
+            std::cout << "You see a pack of BATTERIES and a can of Olliebeans!\n";
+            std::cout << "You can <take> the batteries, but the Olliebeans will always remain.\n";
+            break;
+        case 14:
+            std::cout << "As you enter the room you see that this is a mechanical room\n";
+            std::cout << "with two large electrical switches secured by large padlocks.\n";
+            break;
+        default:
+            std::cout << "Oopsie! Well, this is really embarassing...\n";
+            std::cout << pos << "\n";
+    }
+}
+
+void Player::newGame() {
+    // Display opening storyline from levelOne.py
+    printSlowText("In a dimly lit, cold room you regain consciousness...\n", 0.05);
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    printSlowText("The back of your head is searing with pain.\n", 0.05);
+    printSlowText("You can't seem to remember your name.\n\n", 0.05);
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    printSlowText("You look at the ID Badge around your neck. ", 0.05);
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    printSlowText("ASSET: FAULKEN, S. \n", 0.05);
+    std::this_thread::sleep_for(std::chrono::milliseconds(250));
+    printSlowText("As you stare at the fuzzy picture, you realize two things.\n", 0.05);
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    printSlowText("You are not Faulken...", 0.05);
+    std::this_thread::sleep_for(std::chrono::milliseconds(750));
+    printSlowText("and you have no idea why you are wearing this badge.\n", 0.05);
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    printSlowText("The green glow of a computer terminal catches your attention\n\n", 0.05);
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    
+    std::cout << "Enter your name...\n";
+    std::getline(std::cin, name);
+    
+    try {
+        saveData = name + " lvl=1";
+        std::string filename = "cpp_version/saves/" + name + ".data";
+        
+        // Create saves directory if it doesn't exist
+        fs::create_directories("cpp_version/saves");
+        
+        std::ofstream file(filename);
+        if (!file.is_open()) {
+            throw std::runtime_error("Unable to create save file");
+        }
+        file << saveData;
+        file.close();
+    } catch (const std::exception& e) {
+        std::cout << "Unable to create new gamesave file: " << e.what() << "\n";
+    }
+}
+
+void Player::saveGame(int position) {
+    std::cout << "Enter save file name...\n";
+    std::getline(std::cin, name);
+    std::cout << position << "\n\n";
+    
+    saveData = name + "\nlvl=" + std::to_string(position) + "\n";
+    
+    try {
+        std::string filename = "cpp_version/saves/" + name + ".data";
+        
+        // Create saves directory if it doesn't exist
+        fs::create_directories("cpp_version/saves");
+        
+        std::ofstream file(filename);
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open file for writing");
+        }
+        
+        file << saveData;
+        // TODO: Add loot serialization to JSON
+        file.close();
+        
+        std::cout << "Game Save Successful.\n" << saveData << "\n";
+    } catch (const std::exception& e) {
+        std::cout << "Could not write file: " << e.what() << "\n";
+    }
+}
+
+void Player::loadGame(Game* game) {
+    std::cout << "Enter file name to load...\n";
+    std::getline(std::cin, name);
+    
+    try {
+        std::string filename = "cpp_version/saves/" + name + ".data";
+        std::ifstream file(filename);
+        
+        if (!file.is_open()) {
+            throw std::runtime_error("Could not open save file");
+        }
+        
+        readData.clear();
+        std::string line;
+        while (std::getline(file, line)) {
+            readData += line + "\n";
+        }
+        file.close();
+        
+        std::cout << "Loading Game...\n\n";
+        
+        // Parse level information and load appropriate room
+        if (readData.find("lvl=1") != std::string::npos) {
+            game->zeroCentral();
+        } else if (readData.find("lvl=2") != std::string::npos) {
+            game->zeroWest();
+        } else if (readData.find("lvl=3") != std::string::npos) {
+            game->zeroEast();
+        }
+        // Add more level cases as needed
+        
+        std::cout << readData;
+        
+    } catch (const std::exception& e) {
+        std::cout << "Could not read file: " << e.what() << "\n";
+    }
+}
