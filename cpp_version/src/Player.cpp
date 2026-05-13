@@ -99,51 +99,55 @@ void Player::look(int pos, const std::map<std::string, std::string>& items, cons
         return;
     }
     
-    // Check if room has items - if not, show generic message
-    if (items.empty()) {
-        std::cout << "Nothing to see here. Let's keep moving.\n";
-        return;
-    }
-    
     switch (pos) {
         case 1:
             std::cout << "You <look> down at the ID BADGE. You should <take> it!\n";
             std::cout << "Hey! We really need to find the elevator.\n";
-            break;
+            return;
         case 2:
             std::cout << "We are getting closer to the elevator. Let's keep going <west>.\n";
-            break;
+            return;
         case 3:
             std::cout << "You see a FLASHLIGHT on the floor. You should <take> it!\n";
-            break;
+            return;
         case 4:
             std::cout << "There is a computer TERMinal in the room just <north> of here.\n";
-            break;
+            return;
         case 5:
-            std::cout << "There is a computer TERMinal! Let's <use term>\n";
-            break;
+            std::cout << "There's a computer terminal over there. Let's <use term>\n";
+            return;
         case 6:
             std::cout << "This must be the security center. You see a KEY! <take> it!\n";
             std::cout << "The elevator is on the <north> wall of the security center!\n";
-            break;
+            return;
         case 8:
             std::cout << "This room is filled with cubicles.\n";
             std::cout << "A small piece of PAPER catches your eye. Better <take> it along.\n";
-            break;
+            return;
         case 9:
             std::cout << "Ermmmm... The eighth and tenth floor access doors are locked!\n";
-            break;
+            return;
+        case 11:
+            std::cout << "Executive Suite North is Locked!\n";
+            return;
+        case 12:
+            std::cout << "Executive Suite South is Locked!\n";
+            return;
         case 13:
             std::cout << "You see a pack of BATTERIES and a can of Olliebeans!\n";
             std::cout << "You can <take> the batteries, but the Olliebeans will always remain.\n";
-            break;
+            return;
         case 14:
-            std::cout << "As you enter the room you see that this is a mechanical room\n";
-            std::cout << "with two large electrical switches secured by large padlocks.\n";
-            break;
+            std::cout << "If you had the <key> you could <unlock> the switchgear.\n";
+            return;
         default:
-            std::cout << "Oopsie! Well, this is really embarassing...\n";
-            std::cout << pos << "\n";
+            if (items.empty()) {
+                std::cout << "Nothing to see here. Let's keep moving.\n";
+            } else {
+                std::cout << "Oopsie! Well, this is really embarassing...\n";
+                std::cout << pos << "\n";
+            }
+            return;
     }
 }
 

@@ -118,6 +118,7 @@ void Game::elevatorRoom() {
     
     std::cout << "The elevator lights are on! The power is working.\n";
     std::cout << "You can now access the upper floors.\n";
+    std::cout << "**LEVEL 1 COMPLETE!**\n";
     
     actions();
 }
@@ -223,7 +224,8 @@ void Game::actions() {
                 break;        // Security -> Elevator (only if powered)
             case 7: control(); break;             // Elevator -> Control Room (if power is on)
             case 8: stairwell(); break;           // Office Space -> Stairwell
-            case 10: storage(); break;            // Corridor -> Storage
+            case 10: officeNorth(); break;        // Corridor -> Executive Office North
+            case 12: corridor(); break;           // Executive Office South -> Corridor
             default: std::cout << "You can't go north from here.\n"; actions(); break;
         }
     }
@@ -235,6 +237,8 @@ void Game::actions() {
             case 5: terminalA(); break;           // Computer Room North -> Computer Room South
             case 7: security(); break;            // Elevator -> Security
             case 9: officeSpace(); break;         // Stairwell -> Office Space
+            case 10: officeSouth(); break;        // Corridor -> Executive Office South
+            case 11: corridor(); break;           // Executive Office North -> Corridor
             default: std::cout << "You can't go south from here.\n"; actions(); break;
         }
     }
@@ -246,6 +250,7 @@ void Game::actions() {
             case 4: corridor(); break;            // Computer Room South -> Corridor
             case 6: zeroWest(); break;            // Security -> Zero West
             case 9: std::cout << "You can't go east here.\n"; actions(); break;  // Stairwell east blocked
+            case 10: stairwell(); break;          // Corridor -> Stairwell
             case 13: terminalA(); break;          // Storage -> Computer Room South
             case 14: terminalB(); break;          // Control Room -> Computer Room North
             default: std::cout << "You can't go east from here.\n"; actions(); break;
@@ -290,6 +295,8 @@ void Game::actions() {
     }
     else if (move == "load") {
         player.loadGame(this);
+        // Note: loadGame() calls the appropriate room function which starts actions() loop
+        // so we don't call actions() again here
     }
     else if (move == "use term") {
         if (pos == 4 || pos == 5) {  // Terminal rooms
