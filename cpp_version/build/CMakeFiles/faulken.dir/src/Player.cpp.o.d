@@ -142,7 +142,8 @@ CMakeFiles/faulken.dir/src/Player.cpp.o: \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h /usr/include/c++/13/deque \
+ /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/MapBase.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
  /usr/include/c++/13/ios /usr/include/c++/13/exception \

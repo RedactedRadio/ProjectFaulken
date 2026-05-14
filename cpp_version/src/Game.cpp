@@ -4,9 +4,16 @@
 #include "TitleScreen.h"
 #include <iostream>
 #include <cstdlib>
+#include <algorithm>
+#include <limits>
+#include <fstream>
+#include <thread>
+#include <chrono>
+#include <algorithm>
+#include <limits>
 
 Game::Game()
-    : currentRoom(Room::ZeroCentral) {
+    : gameState{} {
     player = Player();
     initRooms();
 }
@@ -83,7 +90,7 @@ void Game::initRooms() {
         },
         {},
         [this]() {
-            if (elevStatus != "juiced") {
+            if (!gameState.elevatorPowered) {
                 std::cout << "The elevator is dark and lifeless. The power must be out.\n";
                 std::cout << "You can't use the elevator without power.\n";
                 std::cout << "Let's go back and find a way to turn it on.\n\n";
@@ -193,7 +200,7 @@ void Game::startGame() {
 }
 
 void Game::enterRoom(Room room) {
-    currentRoom = room;
+    gameState.currentRoom = room;
     const RoomData& roomInfo = roomData.at(room);
     desc = roomInfo.description;
     items = roomInfo.items;
@@ -262,61 +269,80 @@ void Game::control() {
 }
 
 void Game::actions() {
-    while (!shouldExit) {
+    while (!gameState.shouldExit) {
         std::string move;
         std::cout << "ACTION:>";
         std::getline(std::cin, move);
-        handleInput(move);
+        
+        // Handle empty input
+        if (move.empty()) continue;
+        
+        // Add to command history
+        addToCommandHistory(move);
+        
+        // Normalize command using aliases
+        std::string normalizedCmd = normalizeCommand(move);
+        handleInput(normalizedCmd);
     }
 }
 
 void Game::handleInput(const std::string& move) {
     if (move == "north" || move == "south" || move == "east" || move == "west") {
         moveDirection(move);
+        playSound("move");
         return;
     }
 
     if (move == "map") {
         player.map(getPosition());
+        playSound("ui");
         return;
     }
 
     if (move == "take") {
         player.take(items);
+        playSound("item");
         return;
     }
 
     if (move == "inv") {
         player.inventory();
+        playSound("ui");
         return;
     }
 
     if (move == "help") {
         player.help();
+        playSound("ui");
         return;
     }
 
     if (move == "look") {
         player.look(getPosition(), items, player.getLoot());
+        playSound("ui");
         return;
     }
 
     if (move == "save") {
         player.saveGame(getPosition());
+        playSound("save");
         return;
     }
 
     if (move == "load") {
         player.loadGame(this);
+        playSound("load");
         return;
     }
 
     if (move == "use term") {
-        if (currentRoom == Room::ComputerSouth || currentRoom == Room::ComputerNorth) {
+        if (gameState.currentRoom == Room::ComputerSouth || gameState.currentRoom == Room::ComputerNorth) {
             Console console;
             console.startTerminal();
+            playSound("terminal");
         } else {
             std::cout << "There's no terminal here.\n";
+            playSound("error");
         }
         return;
     }
@@ -326,26 +352,35 @@ void Game::handleInput(const std::string& move) {
             if (player.getLoot().find("key") != player.getLoot().end()) {
                 std::cout << "You have unlocked the switches! Now, <energize> them!\n";
                 player.swStatus = "unlocked";
+                gameState.switchesLocked = false;
+                playSound("unlock");
             } else {
                 std::cout << "You need the key to unlock the switches.\n";
+                playSound("error");
             }
+        } else {
+            std::cout << "The switches are already unlocked.\n";
+            playSound("error");
         }
         return;
     }
 
     if (move == "energize") {
         if (player.swStatus == "unlocked") {
-            elevStatus = "juiced";
+            gameState.elevatorPowered = true;
             std::cout << "As you throw the switches on, you can feel the power flowing through the lines.\n";
             std::cout << "The emergency lighting is now on. Let's check the elevator!\n";
+            playSound("power");
         } else {
             std::cout << "These switches are locked. You must <unlock> them first.\n";
+            playSound("error");
         }
         return;
     }
 
     if (move == "scan id") {
         std::cout << "You hold your badge up to the scanner...\n";
+        playSound("scan");
         return;
     }
 
@@ -355,42 +390,52 @@ void Game::handleInput(const std::string& move) {
         std::cout << "Save before quitting? <y><n>:>";
         std::getline(std::cin, choice);
         
-        if (choice == "y") {
+        if (choice == "y" || choice == "Y") {
             player.saveGame(getPosition());
+            loadTitanPointe(); // Show titan pointe before game over
             go.gameOverTxt();
-            shouldExit = true;
-        } else if (choice == "n") {
+            gameState.shouldExit = true;
+        } else if (choice == "n" || choice == "N") {
             std::cout << "Are you sure?:>";
             std::getline(std::cin, choice);
-            if (choice == "y") {
+            if (choice == "y" || choice == "Y") {
+                loadTitanPointe(); // Show titan pointe before game over
                 go.gameOverTxt();
-                shouldExit = true;
+                gameState.shouldExit = true;
+            } else {
+                std::cout << "Quit cancelled.\n";
+                playSound("ui");
             }
         } else {
-            std::cout << "Invalid command.\n";
+            std::cout << "Please enter 'y' or 'n'.\n";
+            playSound("error");
         }
         return;
     }
 
     if (move == "nav") {
         printNavInfo();
+        playSound("ui");
         return;
     }
 
-    std::cout << "Invalid command. Type <help> for available commands.\n";
+    // Handle invalid command with suggestions
+    handleInvalidCommand(move);
 }
 
 bool Game::moveDirection(const std::string& direction) {
-    const auto& exits = roomData.at(currentRoom).exits;
+    const auto& exits = roomData.at(gameState.currentRoom).exits;
     auto it = exits.find(direction);
     if (it == exits.end()) {
         std::cout << "You can't go " << direction << " from here.\n";
+        playSound("error");
         return false;
     }
 
     Room nextRoom = it->second;
-    if (nextRoom == Room::Elevator && elevStatus != "juiced") {
+    if (nextRoom == Room::Elevator && !gameState.elevatorPowered) {
         std::cout << "The elevator is still powered off. I need to find a way to turn it on.\n";
+        playSound("error");
         return false;
     }
 
@@ -420,20 +465,158 @@ std::string Game::roomName(Room room) const {
 
 void Game::printNavInfo() const {
     std::cout << "\n=== Navigation Information ===\n\n";
-    std::cout << roomName(currentRoom) << ":\n";
-    const auto& exits = roomData.at(currentRoom).exits;
+    std::cout << roomName(gameState.currentRoom) << ":\n";
+    const auto& exits = roomData.at(gameState.currentRoom).exits;
 
     for (const auto& [direction, room] : exits) {
         std::cout << "  <" << direction << "> - " << roomName(room) << "\n";
     }
 
-    if (currentRoom == Room::ComputerNorth) {
+    if (gameState.currentRoom == Room::ComputerNorth) {
         std::cout << "  <use term> - Use the terminal here\n";
     }
 
-    if (currentRoom == Room::OfficeNorth || currentRoom == Room::OfficeSouth) {
+    if (gameState.currentRoom == Room::OfficeNorth || gameState.currentRoom == Room::OfficeSouth) {
         std::cout << "  [This room is currently locked]\n";
     }
 
     std::cout << "\n";
+}
+
+// New methods for enhanced UX
+
+std::string Game::normalizeCommand(const std::string& cmd) const {
+    std::string lowerCmd = cmd;
+    std::transform(lowerCmd.begin(), lowerCmd.end(), lowerCmd.begin(), ::tolower);
+    
+    auto it = commandAliases.find(lowerCmd);
+    if (it != commandAliases.end()) {
+        return it->second;
+    }
+    return lowerCmd;
+}
+
+std::vector<std::string> Game::getCommandSuggestions(const std::string& partial) const {
+    std::vector<std::string> suggestions;
+    std::string lowerPartial = partial;
+    std::transform(lowerPartial.begin(), lowerPartial.end(), lowerPartial.begin(), ::tolower);
+    
+    // Check aliases
+    for (const auto& [alias, command] : commandAliases) {
+        if (alias.find(lowerPartial) == 0) {
+            suggestions.push_back(alias);
+        }
+    }
+    
+    // Check main commands
+    std::vector<std::string> mainCommands = {
+        "north", "south", "east", "west", "map", "take", "inv", "help", 
+        "look", "save", "load", "use term", "unlock", "energize", 
+        "scan id", "quit", "nav"
+    };
+    
+    for (const std::string& cmd : mainCommands) {
+        if (cmd.find(lowerPartial) == 0) {
+            suggestions.push_back(cmd);
+        }
+    }
+    
+    // Remove duplicates
+    std::sort(suggestions.begin(), suggestions.end());
+    suggestions.erase(std::unique(suggestions.begin(), suggestions.end()), suggestions.end());
+    
+    return suggestions;
+}
+
+void Game::handleInvalidCommand(const std::string& cmd) {
+    std::cout << "Unknown command: '" << cmd << "'\n";
+    playSound("error");
+    
+    // Get suggestions
+    auto suggestions = getCommandSuggestions(cmd);
+    if (!suggestions.empty()) {
+        std::cout << "Did you mean: ";
+        for (size_t i = 0; i < suggestions.size() && i < 3; ++i) {
+            std::cout << suggestions[i];
+            if (i < suggestions.size() - 1 && i < 2) std::cout << ", ";
+        }
+        if (suggestions.size() > 3) std::cout << "...";
+        std::cout << "?\n";
+    }
+    
+    std::cout << "Type 'help' for available commands.\n";
+}
+
+void Game::addToCommandHistory(const std::string& cmd) {
+    if (!cmd.empty()) {
+        gameState.commandHistory.push_back(cmd);
+        if (gameState.commandHistory.size() > 50) { // Keep last 50 commands
+            gameState.commandHistory.pop_front();
+        }
+        gameState.historyIndex = gameState.commandHistory.size();
+    }
+}
+
+std::string Game::getPreviousCommand() {
+    if (gameState.historyIndex > 0) {
+        gameState.historyIndex--;
+        return gameState.commandHistory[gameState.historyIndex];
+    }
+    return "";
+}
+
+std::string Game::getNextCommand() {
+    if (gameState.historyIndex < gameState.commandHistory.size() - 1) {
+        gameState.historyIndex++;
+        return gameState.commandHistory[gameState.historyIndex];
+    }
+    return "";
+}
+
+void Game::playSound(const std::string& soundType) const {
+    if (!gameState.enableSound) return;
+    
+    // Simple console beep for different sound types
+    if (soundType == "move") {
+        std::cout << "\a"; // Bell character for movement
+    } else if (soundType == "item") {
+        std::cout << "\a\a"; // Double beep for items
+    } else if (soundType == "error") {
+        std::cout << "\a\a\a"; // Triple beep for errors
+    } else if (soundType == "save") {
+        std::cout << "\a"; // Single beep for save
+    } else if (soundType == "load") {
+        std::cout << "\a\a"; // Double beep for load
+    } else if (soundType == "power") {
+        std::cout << "\a\a\a\a"; // Quadruple beep for power activation
+    } else if (soundType == "unlock") {
+        std::cout << "\a\a"; // Double beep for unlock
+    } else if (soundType == "scan") {
+        std::cout << "\a"; // Single beep for scan
+    } else if (soundType == "terminal") {
+        std::cout << "\a\a\a"; // Triple beep for terminal
+    } else {
+        std::cout << "\a"; // Default beep for UI actions
+    }
+}
+
+void Game::loadTitanPointe() {
+    std::ifstream file("../src/titanpointe.txt");
+    if (!file.is_open()) {
+        std::cout << "Could not load Titan Pointe display.\n";
+        return;
+    }
+    
+    std::string line;
+    std::cout << "\033[32m"; // Green color
+    while (std::getline(file, line)) {
+        std::cout << line << "\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Slow scroll effect
+    }
+    std::cout << "\033[0m"; // Reset color
+    file.close();
+    
+    // Wait for user to continue
+    std::cout << "\nPress Enter to continue...";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }

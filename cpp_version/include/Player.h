@@ -28,7 +28,7 @@ public:
     const std::map<std::string, std::string>& getLoot() const { return loot; }
     const std::string& getLastReadData() const { return readData; }
     
-    // Switch status management
+    // State management (will be moved to GameState later)
     std::string swStatus = "locked";
     std::string elevStatus = "";
     

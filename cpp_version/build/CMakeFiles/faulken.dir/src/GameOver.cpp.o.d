@@ -162,4 +162,8 @@ CMakeFiles/faulken.dir/src/GameOver.cpp.o: \
  /usr/include/c++/13/bits/parse_numbers.h /usr/include/c++/13/thread \
  /usr/include/c++/13/bits/std_thread.h \
  /usr/include/c++/13/bits/unique_ptr.h \
- /usr/include/c++/13/bits/this_thread_sleep.h
+ /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/fstream \
+ /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc

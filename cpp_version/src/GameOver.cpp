@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <chrono>
 #include <thread>
+#include <fstream>
 
 GameOver::GameOver() {
 }

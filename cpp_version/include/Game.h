@@ -8,6 +8,8 @@
 #include <string>
 #include <map>
 #include <functional>
+#include <vector>
+#include <deque>
 
 class Game {
 public:
@@ -26,6 +28,19 @@ public:
         OfficeSouth,
         Storage,
         Control
+    };
+
+    // GameState struct to centralize state
+    struct GameState {
+        Room currentRoom = Room::ZeroCentral;
+        std::map<std::string, std::string> inventory;
+        std::string playerName;
+        bool elevatorPowered = false;
+        bool switchesLocked = true;
+        bool shouldExit = false;
+        std::deque<std::string> commandHistory;
+        size_t historyIndex = 0;
+        bool enableSound = true;
     };
 
     Game();
@@ -50,16 +65,22 @@ public:
     void control();
     
     void enterRoom(Room room);
-    Room getCurrentRoom() const { return currentRoom; }
-    int getPosition() const { return static_cast<int>(currentRoom); }
-    void setPosition(int p) { currentRoom = static_cast<Room>(p); }
+    Room getCurrentRoom() const { return gameState.currentRoom; }
+    int getPosition() const { return static_cast<int>(gameState.currentRoom); }
+    void setPosition(int p) { gameState.currentRoom = static_cast<Room>(p); }
     const std::map<std::string, std::string>& getItems() const { return items; }
     const std::string& getDescription() const { return desc; }
     Player* getPlayer() { return &player; }
     
-    // Game state
-    std::string elevStatus = "";
-    bool shouldExit = false;
+    // New methods for enhanced UX
+    std::string normalizeCommand(const std::string& cmd) const;
+    std::vector<std::string> getCommandSuggestions(const std::string& partial) const;
+    void handleInvalidCommand(const std::string& cmd);
+    void addToCommandHistory(const std::string& cmd);
+    std::string getPreviousCommand();
+    std::string getNextCommand();
+    void playSound(const std::string& soundType) const;
+    void loadTitanPointe();
     
 private:
     struct RoomData {
@@ -69,11 +90,21 @@ private:
         std::function<void()> onEnter;
     };
 
-    Room currentRoom;
+    GameState gameState;
     std::map<Room, RoomData> roomData;
     std::string desc;
     std::map<std::string, std::string> items;
     Player player;
+    
+    // Command aliases for better UX
+    std::map<std::string, std::string> commandAliases = {
+        {"n", "north"}, {"s", "south"}, {"e", "east"}, {"w", "west"},
+        {"i", "inv"}, {"inventory", "inv"}, {"l", "look"},
+        {"m", "map"}, {"h", "help"}, {"q", "quit"},
+        {"t", "take"}, {"u", "use term"}, {"un", "unlock"},
+        {"en", "energize"}, {"sc", "scan id"}, {"na", "nav"},
+        {"sa", "save"}, {"lo", "load"}
+    };
     
     void clearScreen() const;
     void initRooms();

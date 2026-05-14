@@ -142,9 +142,11 @@ CMakeFiles/faulken.dir/src/Console.cpp.o: \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h /usr/include/c++/13/iostream \
- /usr/include/c++/13/ostream /usr/include/c++/13/ios \
- /usr/include/c++/13/exception /usr/include/c++/13/bits/exception_ptr.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h /usr/include/c++/13/deque \
+ /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
+ /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
+ /usr/include/c++/13/ios /usr/include/c++/13/exception \
+ /usr/include/c++/13/bits/exception_ptr.h \
  /usr/include/c++/13/bits/cxxabi_init_exception.h \
  /usr/include/c++/13/bits/nested_exception.h \
  /usr/include/c++/13/bits/ios_base.h /usr/include/c++/13/ext/atomicity.h \
