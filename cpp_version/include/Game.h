@@ -7,9 +7,27 @@
 #include "TitleScreen.h"
 #include <string>
 #include <map>
+#include <functional>
 
 class Game {
 public:
+    enum class Room {
+        ZeroCentral = 1,
+        ZeroWest,
+        ZeroEast,
+        ComputerSouth,
+        ComputerNorth,
+        Security,
+        Elevator,
+        OfficeSpace,
+        Stairwell,
+        Corridor,
+        OfficeNorth,
+        OfficeSouth,
+        Storage,
+        Control
+    };
+
     Game();
     
     void startGame();
@@ -31,9 +49,10 @@ public:
     void storage();
     void control();
     
-    // Getters/Setters
-    int getPosition() const { return pos; }
-    void setPosition(int p) { pos = p; }
+    void enterRoom(Room room);
+    Room getCurrentRoom() const { return currentRoom; }
+    int getPosition() const { return static_cast<int>(currentRoom); }
+    void setPosition(int p) { currentRoom = static_cast<Room>(p); }
     const std::map<std::string, std::string>& getItems() const { return items; }
     const std::string& getDescription() const { return desc; }
     Player* getPlayer() { return &player; }
@@ -43,13 +62,24 @@ public:
     bool shouldExit = false;
     
 private:
-    int pos;
+    struct RoomData {
+        std::string description;
+        std::map<std::string, Room> exits;
+        std::map<std::string, std::string> items;
+        std::function<void()> onEnter;
+    };
+
+    Room currentRoom;
+    std::map<Room, RoomData> roomData;
     std::string desc;
     std::map<std::string, std::string> items;
     Player player;
     
     void clearScreen() const;
+    void initRooms();
     void handleInput(const std::string& move);
+    bool moveDirection(const std::string& direction);
+    std::string roomName(Room room) const;
     void printNavInfo() const;
 };
 

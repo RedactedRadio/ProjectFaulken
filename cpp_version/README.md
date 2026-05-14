@@ -1,3 +1,5 @@
+<img width="748" height="411" alt="FaulkensTerminal" src="https://github.com/user-attachments/assets/28f98821-b78a-43ab-bcc8-2f4a0656307a" />
+
 # Project Faulken - C++ Version
 
 This is a C++ port of the Python text-based adventure game Project Faulken.
@@ -15,12 +17,12 @@ cpp_version/
 │   ├── MapBase.h
 │   └── nlohmann/json.hpp   # (download and place here)
 └── src/                    # Implementation files
-    ├── main.cpp
-    ├── Game.cpp
-    ├── Player.cpp
-    ├── Console.cpp
-    ├── GameOver.cpp
-    └── MapBase.cpp
+   ├── main.cpp
+   ├── Game.cpp
+   ├── Player.cpp
+   ├── Console.cpp
+   ├── GameOver.cpp
+   └── MapBase.cpp
 ```
 
 ## Dependencies
@@ -93,6 +95,16 @@ faulken.exe  # Windows
 -  **Game Over screen** - Animated farewell text
 -  **ANSI color support** - Red text styling throughout
 -  **Cross-platform support** - Builds on Linux, macOS, and Windows
+-  **Animated title screen** - Full ASCII art with animated text (from titleScreen.py)
+-  **Core game loop** - Room navigation, player actions, inventory
+-  **Fixed navigation system** - Proper directional movement (north/south/east/west) with switch-based routing
+-  **Inventory system** - Take items, display inventory, item management
+-  **Save/Load functionality** - Basic game state persistence
+-  **Terminal/Console interface** - In-game terminal with credential checking and decryption
+-  **Navigation help** - Use `<nav>` command to see available exits
+-  **Game Over screen** - Animated farewell text
+-  **ANSI color support** - Red text styling throughout
+-  **Cross-platform support** - Builds on Linux, macOS, and Windows
 
 ## Architecture and State Management
 
@@ -119,55 +131,7 @@ Benefits:
 ## TODO / Future Improvements
 
 - [ ] Complete all room descriptions and interactions
+- [ ] Full JSON serialization for game saves (inventory)
 - [ ] Sound effects support
 - [ ] Complete terminal decryption mini-game
 - [ ] Additional advanced game features
-- [ ] Expanded room network and puzzle complexity
-- [ ] Windows binary distribution package
-
-## Building on Different Platforms
-
-### Linux/macOS
-```bash
-cd cpp_version
-mkdir build && cd build
-cmake ..
-make
-./faulken
-```
-
-### Windows (with Visual Studio)
-```bash
-cd cpp_version
-mkdir build && cd build
-cmake .. -G "Visual Studio 16 2019"
-cmake --build . --config Release
-.\Release\faulken.exe
-```
-
-### Windows (with MinGW)
-```bash
-cd cpp_version
-mkdir build && cd build
-cmake .. -G "MinGW Makefiles"
-make
-faulken.exe
-```
-
-## Notes
-
-- The C++ version maintains the same core gameplay as the Python version
-- File paths are relative to the executable location
-- Save files are stored in `cpp_version/saves/` directory
-- Terminal colors use ANSI escape codes (works on most terminals)
-
-## Compilation
-
-For best results, use a C++17 compliant compiler:
-- GCC 7+
-- Clang 5+
-- MSVC 2017+
-
-## License
-
-Same as original Python version.

@@ -6,6 +6,7 @@
 #include <chrono>
 #include <thread>
 #include <filesystem>
+#include <nlohmann/json.hpp>
 
 namespace fs = std::filesystem;
 
@@ -111,16 +112,17 @@ void Player::look(int pos, const std::map<std::string, std::string>& items, cons
             std::cout << "You see a FLASHLIGHT on the floor. You should <take> it!\n";
             return;
         case 4:
-            std::cout << "There is a computer TERMinal in the room just <north> of here.\n";
+            std::cout << "There is a computer console in the room just <north> of here.\n";
             return;
         case 5:
-            std::cout << "There's a computer terminal over there. Let's <use term>\n";
+            std::cout << "There's a computer terminal over there. Let's <use term>. \nMaybe we can decode the code on the[paper].\n";
             return;
         case 6:
-            std::cout << "This must be the security center. You see a KEY! <take> it!\n";
-            std::cout << "The elevator is on the <north> wall of the security center!\n";
+            std::cout << "This must be the security center. You see a KEY! \n This must fit something important. <take> it!\n";
+            std::cout << "The elevator is on the <north> wall of the security center.\n";
             return;
         case 8:
+            std::cout << "As you enter this dark liminal space, you feel a sense of unease.\n";
             std::cout << "This room is filled with cubicles.\n";
             std::cout << "A small piece of PAPER catches your eye. Better <take> it along.\n";
             return;
@@ -138,6 +140,8 @@ void Player::look(int pos, const std::map<std::string, std::string>& items, cons
             std::cout << "You can <take> the batteries, but the Olliebeans will always remain.\n";
             return;
         case 14:
+            std::cout << "You enter the control room and look up at the tall ceilings.\nThey must be 15-20 feet tall!";
+            std::cout << "Among the heavy cables running floor to ceiling, you notice a giant switchgear \nwith a lock securing the the actuator.\n";
             std::cout << "If you had the <key> you could <unlock> the switchgear.\n";
             return;
         default:
@@ -158,18 +162,17 @@ void Player::newGame() {
     printSlowText("The back of your head is searing with pain.\n", 0.05);
     printSlowText("You can't seem to remember your name.\n\n", 0.05);
     std::this_thread::sleep_for(std::chrono::seconds(1));
-    printSlowText("You look at the ID Badge around your neck. ", 0.05);
+    printSlowText("You look at the ID Badge next to you. ", 0.05);
     std::this_thread::sleep_for(std::chrono::milliseconds(500));
     printSlowText("ASSET: FAULKEN, S. \n", 0.05);
     std::this_thread::sleep_for(std::chrono::milliseconds(250));
     printSlowText("As you stare at the fuzzy picture, you realize two things.\n", 0.05);
     std::this_thread::sleep_for(std::chrono::seconds(2));
     printSlowText("You are not Faulken...", 0.05);
-    std::this_thread::sleep_for(std::chrono::milliseconds(750));
-    printSlowText("and you have no idea why you are wearing this badge.\n", 0.05);
+    std::this_thread::sleep_for(std::chrono::milliseconds(250));
+    printSlowText("and you have no idea why you are here.\n", 0.05);
     std::this_thread::sleep_for(std::chrono::seconds(1));
-    printSlowText("The green glow of a computer terminal catches your attention\n\n", 0.05);
-    std::this_thread::sleep_for(std::chrono::seconds(1));
+    
     
     std::cout << "Enter your name...\n";
     std::getline(std::cin, name);
@@ -197,24 +200,28 @@ void Player::saveGame(int position) {
     std::getline(std::cin, name);
     std::cout << position << "\n\n";
     
-    saveData = name + "\nlvl=" + std::to_string(position) + "\n";
-    
     try {
         std::string filename = "cpp_version/saves/" + name + ".data";
         
         // Create saves directory if it doesn't exist
         fs::create_directories("cpp_version/saves");
         
+        // Create JSON save data
+        nlohmann::json saveJson;
+        saveJson["name"] = name;
+        saveJson["level"] = position;
+        saveJson["loot"] = loot;
+        
         std::ofstream file(filename);
         if (!file.is_open()) {
             throw std::runtime_error("Could not open file for writing");
         }
         
-        file << saveData;
-        // TODO: Add loot serialization to JSON
+        file << saveJson.dump(4); // Pretty print with 4-space indentation
         file.close();
         
-        std::cout << "Game Save Successful.\n" << saveData << "\n";
+        std::cout << "Game Save Successful.\n";
+        std::cout << "Saved: " << saveJson.dump(4) << "\n";
     } catch (const std::exception& e) {
         std::cout << "Could not write file: " << e.what() << "\n";
     }
@@ -232,26 +239,35 @@ void Player::loadGame(Game* game) {
             throw std::runtime_error("Could not open save file");
         }
         
-        readData.clear();
-        std::string line;
-        while (std::getline(file, line)) {
-            readData += line + "\n";
-        }
+        nlohmann::json saveJson;
+        file >> saveJson;
         file.close();
         
         std::cout << "Loading Game...\n\n";
         
-        // Parse level information and load appropriate room
-        if (readData.find("lvl=1") != std::string::npos) {
-            game->zeroCentral();
-        } else if (readData.find("lvl=2") != std::string::npos) {
-            game->zeroWest();
-        } else if (readData.find("lvl=3") != std::string::npos) {
-            game->zeroEast();
+        // Restore player name
+        if (saveJson.contains("name")) {
+            name = saveJson["name"];
         }
-        // Add more level cases as needed
         
-        std::cout << readData;
+        // Restore room level
+        if (saveJson.contains("level")) {
+            int level = saveJson["level"];
+            if (level >= 1 && level <= 14) {
+                game->enterRoom(static_cast<Game::Room>(level));
+            } else {
+                game->zeroCentral();
+            }
+        } else {
+            game->zeroCentral();
+        }
+        
+        // Restore inventory
+        if (saveJson.contains("loot")) {
+            loot = saveJson["loot"].get<std::map<std::string, std::string>>();
+        }
+        
+        std::cout << "Loaded save data:\n" << saveJson.dump(4) << "\n";
         
     } catch (const std::exception& e) {
         std::cout << "Could not read file: " << e.what() << "\n";
