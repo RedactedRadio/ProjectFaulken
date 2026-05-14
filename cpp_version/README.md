@@ -83,21 +83,42 @@ faulken.exe  # Windows
 
 ## Features
 
-- ✅ **Animated title screen** - Full ASCII art with animated text (from titleScreen.py)
-- ✅ **Core game loop** - Room navigation, player actions, inventory
-- ✅ **Fixed navigation system** - Proper directional movement (north/south/east/west) with switch-based routing
-- ✅ **Inventory system** - Take items, display inventory, item management
-- ✅ **Save/Load functionality** - Basic game state persistence
-- ✅ **Terminal/Console interface** - In-game terminal with credential checking and decryption
-- ✅ **Navigation help** - Use `<nav>` command to see available exits
-- ✅ **Game Over screen** - Animated farewell text
-- ✅ **ANSI color support** - Red text styling throughout
-- ✅ **Cross-platform support** - Builds on Linux, macOS, and Windows
+-  **Animated title screen** - Full ASCII art with animated text (from titleScreen.py)
+-  **Core game loop** - Room navigation, player actions, inventory
+-  **Fixed navigation system** - Proper directional movement (north/south/east/west) with switch-based routing
+-  **Inventory system** - Take items, display inventory, item management
+-  **Save/Load functionality** - Basic game state persistence
+-  **Terminal/Console interface** - In-game terminal with credential checking and decryption
+-  **Navigation help** - Use `<nav>` command to see available exits
+-  **Game Over screen** - Animated farewell text
+-  **ANSI color support** - Red text styling throughout
+-  **Cross-platform support** - Builds on Linux, macOS, and Windows
+
+## Architecture and State Management
+
+This version is moving toward a cleaner game model with structured room state.
+
+Key design goals:
+- Use `enum class Room { ZeroCentral, ZeroWest, ZeroEast, ... }` instead of raw integers
+- Store room data in a centralized structure containing:
+  - `description`
+  - `exits`
+  - `items`
+  - `map function`
+  - `special actions`
+- Replace nested `switch`/`case` navigation with a data-driven table of room exits
+- Serialize game state using a proper struct/class for save/load instead of ad hoc file parsing
+
+Benefits:
+- Easier to add and modify rooms
+- Clearer and more maintainable navigation logic
+- Lower risk of inconsistent state
+- Better separation between game logic and rendering
+- Cleaner save/load behavior for future expansion
 
 ## TODO / Future Improvements
 
 - [ ] Complete all room descriptions and interactions
-- [ ] Full JSON serialization for game saves (inventory)
 - [ ] Sound effects support
 - [ ] Complete terminal decryption mini-game
 - [ ] Additional advanced game features
