@@ -1,3 +1,5 @@
+<img width="748" height="411" alt="FaulkensTerminal" src="https://github.com/user-attachments/assets/28f98821-b78a-43ab-bcc8-2f4a0656307a" />
+
 # Project Faulken - C++ Version
 
 This is a C++ port of the Python text-based adventure game Project Faulken.
