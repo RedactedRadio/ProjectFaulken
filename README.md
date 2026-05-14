@@ -134,4 +134,8 @@ Benefits:
 - [ ] Full JSON serialization for game saves (inventory)
 - [ ] Sound effects support
 - [ ] Complete terminal decryption mini-game
+<<<<<<< HEAD
 - [ ] Additional advanced game features
+=======
+- [ ] Additional advanced game features
+>>>>>>> 80ec5ed1f11783fa2adb10ec71bbbbdaf304ae4c
