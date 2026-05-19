@@ -127,6 +127,7 @@ CMakeFiles/faulken.dir/src/Player.cpp.o: \
  /usr/include/c++/13/bits/stl_bvector.h \
  /usr/include/c++/13/bits/vector.tcc \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/Game.h \
+ /home/blackflag/code/ProjectFaulken/cpp_version/include/IGameUI.h \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/Player.h \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/Console.h \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/GameOver.h \

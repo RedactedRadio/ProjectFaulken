@@ -1,8 +1,10 @@
+#include "ConsoleUI.h"
 #include "Game.h"
 #include <iostream>
 
 int main() {
-    Game game;
+    ConsoleUI ui;
+    Game game(&ui);
     game.startGame();
     return 0;
 }

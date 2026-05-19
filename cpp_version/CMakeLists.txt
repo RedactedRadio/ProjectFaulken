@@ -12,6 +12,7 @@ set(SOURCES
     src/main.cpp
     src/Player.cpp
     src/Console.cpp
+    src/ConsoleUI.cpp
     src/Game.cpp
     src/GameOver.cpp
     src/MapBase.cpp

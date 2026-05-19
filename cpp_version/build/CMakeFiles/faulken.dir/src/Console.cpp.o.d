@@ -117,6 +117,7 @@ CMakeFiles/faulken.dir/src/Console.cpp.o: \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/Game.h \
+ /home/blackflag/code/ProjectFaulken/cpp_version/include/IGameUI.h \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/Player.h \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/ext/aligned_buffer.h \

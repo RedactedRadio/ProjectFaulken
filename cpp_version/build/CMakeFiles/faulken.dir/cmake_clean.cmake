@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/faulken.dir/src/Console.cpp.o"
   "CMakeFiles/faulken.dir/src/Console.cpp.o.d"
+  "CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o"
+  "CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o.d"
   "CMakeFiles/faulken.dir/src/Game.cpp.o"
   "CMakeFiles/faulken.dir/src/Game.cpp.o.d"
   "CMakeFiles/faulken.dir/src/GameOver.cpp.o"

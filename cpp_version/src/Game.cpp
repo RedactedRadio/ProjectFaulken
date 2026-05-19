@@ -12,8 +12,8 @@
 #include <algorithm>
 #include <limits>
 
-Game::Game()
-    : gameState{} {
+Game::Game(IGameUI* ui)
+    : ui(ui), gameState{} {
     player = Player();
     initRooms();
 }
@@ -91,14 +91,14 @@ void Game::initRooms() {
         {},
         [this]() {
             if (!gameState.elevatorPowered) {
-                std::cout << "The elevator is dark and lifeless. The power must be out.\n";
-                std::cout << "You can't use the elevator without power.\n";
-                std::cout << "Let's go back and find a way to turn it on.\n\n";
+                ui->printLine("The elevator is dark and lifeless. The power must be out.");
+                ui->printLine("You can't use the elevator without power.");
+                ui->printLine("Let's go back and find a way to turn it on.\n");
                 enterRoom(Room::Security);
             } else {
-                std::cout << "The elevator lights are on! The power is working.\n";
-                std::cout << "You can now access the upper floors.\n";
-                std::cout << "**LEVEL 1 COMPLETE!**\n";
+                ui->printLine("The elevator lights are on! The power is working.");
+                ui->printLine("You can now access the upper floors.");
+                ui->printLine("**LEVEL 1 COMPLETE!**");
             }
         }
     };
@@ -169,18 +169,10 @@ void Game::initRooms() {
         },
         {},
         [this]() {
-            std::cout << "As you enter, you see that this is a mechanical room\n";
-            std::cout << "with two large electrical switches secured by large padlocks.\n";
+            ui->printLine("As you enter, you see that this is a mechanical room");
+            ui->printLine("with two large electrical switches secured by large padlocks.");
         }
     };
-}
-
-void Game::clearScreen() const {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
 }
 
 void Game::startGame() {
@@ -205,8 +197,8 @@ void Game::enterRoom(Room room) {
     desc = roomInfo.description;
     items = roomInfo.items;
 
-    clearScreen();
-    std::cout << desc << "\n";
+    ui->clearScreen();
+    ui->printLine(desc);
     if (roomInfo.onEnter) {
         roomInfo.onEnter();
     }
@@ -271,8 +263,8 @@ void Game::control() {
 void Game::actions() {
     while (!gameState.shouldExit) {
         std::string move;
-        std::cout << "ACTION:>";
-        std::getline(std::cin, move);
+        ui->print("ACTION:>");
+        move = ui->readLine();
         
         // Handle empty input
         if (move.empty()) continue;
@@ -341,7 +333,7 @@ void Game::handleInput(const std::string& move) {
             console.startTerminal();
             playSound("terminal");
         } else {
-            std::cout << "There's no terminal here.\n";
+            ui->printLine("There's no terminal here.");
             playSound("error");
         }
         return;
@@ -350,16 +342,16 @@ void Game::handleInput(const std::string& move) {
     if (move == "unlock") {
         if (player.swStatus == "locked") {
             if (player.getLoot().find("key") != player.getLoot().end()) {
-                std::cout << "You have unlocked the switches! Now, <energize> them!\n";
+                ui->printLine("You have unlocked the switches! Now, <energize> them!");
                 player.swStatus = "unlocked";
                 gameState.switchesLocked = false;
                 playSound("unlock");
             } else {
-                std::cout << "You need the key to unlock the switches.\n";
+                ui->printLine("You need the key to unlock the switches.");
                 playSound("error");
             }
         } else {
-            std::cout << "The switches are already unlocked.\n";
+            ui->printLine("The switches are already unlocked.");
             playSound("error");
         }
         return;
@@ -368,18 +360,18 @@ void Game::handleInput(const std::string& move) {
     if (move == "energize") {
         if (player.swStatus == "unlocked") {
             gameState.elevatorPowered = true;
-            std::cout << "As you throw the switches on, you can feel the power flowing through the lines.\n";
-            std::cout << "The emergency lighting is now on. Let's check the elevator!\n";
+            ui->printLine("As you throw the switches on, you can feel the power flowing through the lines.");
+            ui->printLine("The emergency lighting is now on. Let's check the elevator!");
             playSound("power");
         } else {
-            std::cout << "These switches are locked. You must <unlock> them first.\n";
+            ui->printLine("These switches are locked. You must <unlock> them first.");
             playSound("error");
         }
         return;
     }
 
     if (move == "scan id") {
-        std::cout << "You hold your badge up to the scanner...\n";
+        ui->printLine("You hold your badge up to the scanner...");
         playSound("scan");
         return;
     }
@@ -387,8 +379,8 @@ void Game::handleInput(const std::string& move) {
     if (move == "quit") {
         GameOver go;
         std::string choice;
-        std::cout << "Save before quitting? <y><n>:>";
-        std::getline(std::cin, choice);
+        ui->print("Save before quitting? <y><n>:>");
+        choice = ui->readLine();
         
         if (choice == "y" || choice == "Y") {
             player.saveGame(getPosition());
@@ -396,18 +388,18 @@ void Game::handleInput(const std::string& move) {
             go.gameOverTxt();
             gameState.shouldExit = true;
         } else if (choice == "n" || choice == "N") {
-            std::cout << "Are you sure?:>";
-            std::getline(std::cin, choice);
+            ui->print("Are you sure?:>");
+            choice = ui->readLine();
             if (choice == "y" || choice == "Y") {
                 loadTitanPointe(); // Show titan pointe before game over
                 go.gameOverTxt();
                 gameState.shouldExit = true;
             } else {
-                std::cout << "Quit cancelled.\n";
+                ui->printLine("Quit cancelled.");
                 playSound("ui");
             }
         } else {
-            std::cout << "Please enter 'y' or 'n'.\n";
+            ui->printLine("Please enter 'y' or 'n'.");
             playSound("error");
         }
         return;
@@ -427,14 +419,14 @@ bool Game::moveDirection(const std::string& direction) {
     const auto& exits = roomData.at(gameState.currentRoom).exits;
     auto it = exits.find(direction);
     if (it == exits.end()) {
-        std::cout << "You can't go " << direction << " from here.\n";
+        ui->printLine("You can't go " + direction + " from here.");
         playSound("error");
         return false;
     }
 
     Room nextRoom = it->second;
     if (nextRoom == Room::Elevator && !gameState.elevatorPowered) {
-        std::cout << "The elevator is still powered off. I need to find a way to turn it on.\n";
+        ui->printLine("The elevator is still powered off. I need to find a way to turn it on.");
         playSound("error");
         return false;
     }
@@ -464,23 +456,23 @@ std::string Game::roomName(Room room) const {
 }
 
 void Game::printNavInfo() const {
-    std::cout << "\n=== Navigation Information ===\n\n";
-    std::cout << roomName(gameState.currentRoom) << ":\n";
+    ui->printLine("\n=== Navigation Information ===\n");
+    ui->printLine(roomName(gameState.currentRoom) + ":");
     const auto& exits = roomData.at(gameState.currentRoom).exits;
 
     for (const auto& [direction, room] : exits) {
-        std::cout << "  <" << direction << "> - " << roomName(room) << "\n";
+        ui->printLine("  <" + direction + "> - " + roomName(room));
     }
 
     if (gameState.currentRoom == Room::ComputerNorth) {
-        std::cout << "  <use term> - Use the terminal here\n";
+        ui->printLine("  <use term> - Use the terminal here");
     }
 
     if (gameState.currentRoom == Room::OfficeNorth || gameState.currentRoom == Room::OfficeSouth) {
-        std::cout << "  [This room is currently locked]\n";
+        ui->printLine("  [This room is currently locked]");
     }
 
-    std::cout << "\n";
+    ui->printLine("");
 }
 
 // New methods for enhanced UX
@@ -529,22 +521,23 @@ std::vector<std::string> Game::getCommandSuggestions(const std::string& partial)
 }
 
 void Game::handleInvalidCommand(const std::string& cmd) {
-    std::cout << "Unknown command: '" << cmd << "'\n";
+    ui->printLine("Unknown command: '" + cmd + "'");
     playSound("error");
     
     // Get suggestions
     auto suggestions = getCommandSuggestions(cmd);
     if (!suggestions.empty()) {
-        std::cout << "Did you mean: ";
+        std::string suggestionText = "Did you mean: ";
         for (size_t i = 0; i < suggestions.size() && i < 3; ++i) {
-            std::cout << suggestions[i];
-            if (i < suggestions.size() - 1 && i < 2) std::cout << ", ";
+            suggestionText += suggestions[i];
+            if (i < suggestions.size() - 1 && i < 2) suggestionText += ", ";
         }
-        if (suggestions.size() > 3) std::cout << "...";
-        std::cout << "?\n";
+        if (suggestions.size() > 3) suggestionText += "...";
+        suggestionText += "?";
+        ui->printLine(suggestionText);
     }
     
-    std::cout << "Type 'help' for available commands.\n";
+    ui->printLine("Type 'help' for available commands.");
 }
 
 void Game::addToCommandHistory(const std::string& cmd) {
@@ -578,45 +571,45 @@ void Game::playSound(const std::string& soundType) const {
     
     // Simple console beep for different sound types
     if (soundType == "move") {
-        std::cout << "\a"; // Bell character for movement
+        ui->print("\a"); // Bell character for movement
     } else if (soundType == "item") {
-        std::cout << "\a\a"; // Double beep for items
+        ui->print("\a\a"); // Double beep for items
     } else if (soundType == "error") {
-        std::cout << "\a\a\a"; // Triple beep for errors
+        ui->print("\a\a\a"); // Triple beep for errors
     } else if (soundType == "save") {
-        std::cout << "\a"; // Single beep for save
+        ui->print("\a"); // Single beep for save
     } else if (soundType == "load") {
-        std::cout << "\a\a"; // Double beep for load
+        ui->print("\a\a"); // Double beep for load
     } else if (soundType == "power") {
-        std::cout << "\a\a\a\a"; // Quadruple beep for power activation
+        ui->print("\a\a\a\a"); // Quadruple beep for power activation
     } else if (soundType == "unlock") {
-        std::cout << "\a\a"; // Double beep for unlock
+        ui->print("\a\a"); // Double beep for unlock
     } else if (soundType == "scan") {
-        std::cout << "\a"; // Single beep for scan
+        ui->print("\a"); // Single beep for scan
     } else if (soundType == "terminal") {
-        std::cout << "\a\a\a"; // Triple beep for terminal
+        ui->print("\a\a\a"); // Triple beep for terminal
     } else {
-        std::cout << "\a"; // Default beep for UI actions
+        ui->print("\a"); // Default beep for UI actions
     }
 }
 
 void Game::loadTitanPointe() {
     std::ifstream file("../src/titanpointe.txt");
     if (!file.is_open()) {
-        std::cout << "Could not load Titan Pointe display.\n";
+        ui->printLine("Could not load Titan Pointe display.");
         return;
     }
     
     std::string line;
-    std::cout << "\033[32m"; // Green color
+    ui->setColor("\033[32m"); // Green color
     while (std::getline(file, line)) {
-        std::cout << line << "\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Slow scroll effect
+        ui->printLine(line);
+        ui->sleepMs(50); // Slow scroll effect
     }
-    std::cout << "\033[0m"; // Reset color
+    ui->resetColor();
     file.close();
     
     // Wait for user to continue
-    std::cout << "\nPress Enter to continue...";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    ui->printLine("\nPress Enter to continue...");
+    ui->readLine();
 }

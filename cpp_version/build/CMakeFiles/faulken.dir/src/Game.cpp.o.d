@@ -2,7 +2,7 @@ CMakeFiles/faulken.dir/src/Game.cpp.o: \
  /home/blackflag/code/ProjectFaulken/cpp_version/src/Game.cpp \
  /usr/include/stdc-predef.h \
  /home/blackflag/code/ProjectFaulken/cpp_version/include/Game.h \
- /home/blackflag/code/ProjectFaulken/cpp_version/include/Player.h \
+ /home/blackflag/code/ProjectFaulken/cpp_version/include/IGameUI.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -117,6 +117,7 @@ CMakeFiles/faulken.dir/src/Game.cpp.o: \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator.h \
  /usr/include/c++/13/bits/uses_allocator_args.h /usr/include/c++/13/tuple \
+ /home/blackflag/code/ProjectFaulken/cpp_version/include/Player.h \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/ext/aligned_buffer.h \
  /usr/include/c++/13/bits/node_handle.h \

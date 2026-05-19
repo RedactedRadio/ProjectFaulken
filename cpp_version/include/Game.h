@@ -1,6 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "IGameUI.h"
 #include "Player.h"
 #include "Console.h"
 #include "GameOver.h"
@@ -43,7 +44,7 @@ public:
         bool enableSound = true;
     };
 
-    Game();
+    Game(IGameUI* ui);
     
     void startGame();
     void actions();
@@ -95,6 +96,7 @@ private:
     std::string desc;
     std::map<std::string, std::string> items;
     Player player;
+    IGameUI* ui;
     
     // Command aliases for better UX
     std::map<std::string, std::string> commandAliases = {
@@ -106,7 +108,6 @@ private:
         {"sa", "save"}, {"lo", "load"}
     };
     
-    void clearScreen() const;
     void initRooms();
     void handleInput(const std::string& move);
     bool moveDirection(const std::string& direction);

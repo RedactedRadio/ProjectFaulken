@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/blackflag/code/ProjectFaulken/cpp_version/src/Console.cpp" "CMakeFiles/faulken.dir/src/Console.cpp.o" "gcc" "CMakeFiles/faulken.dir/src/Console.cpp.o.d"
+  "/home/blackflag/code/ProjectFaulken/cpp_version/src/ConsoleUI.cpp" "CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o" "gcc" "CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o.d"
   "/home/blackflag/code/ProjectFaulken/cpp_version/src/Game.cpp" "CMakeFiles/faulken.dir/src/Game.cpp.o" "gcc" "CMakeFiles/faulken.dir/src/Game.cpp.o.d"
   "/home/blackflag/code/ProjectFaulken/cpp_version/src/GameOver.cpp" "CMakeFiles/faulken.dir/src/GameOver.cpp.o" "gcc" "CMakeFiles/faulken.dir/src/GameOver.cpp.o.d"
   "/home/blackflag/code/ProjectFaulken/cpp_version/src/MapBase.cpp" "CMakeFiles/faulken.dir/src/MapBase.cpp.o" "gcc" "CMakeFiles/faulken.dir/src/MapBase.cpp.o.d"

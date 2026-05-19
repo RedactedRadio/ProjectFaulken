@@ -153,6 +153,30 @@ src/Console.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/Console.cpp.s
 .PHONY : src/Console.cpp.s
 
+src/ConsoleUI.o: src/ConsoleUI.cpp.o
+.PHONY : src/ConsoleUI.o
+
+# target to build an object file
+src/ConsoleUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o
+.PHONY : src/ConsoleUI.cpp.o
+
+src/ConsoleUI.i: src/ConsoleUI.cpp.i
+.PHONY : src/ConsoleUI.i
+
+# target to preprocess a source file
+src/ConsoleUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/ConsoleUI.cpp.i
+.PHONY : src/ConsoleUI.cpp.i
+
+src/ConsoleUI.s: src/ConsoleUI.cpp.s
+.PHONY : src/ConsoleUI.s
+
+# target to generate assembly for a file
+src/ConsoleUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/ConsoleUI.cpp.s
+.PHONY : src/ConsoleUI.cpp.s
+
 src/Game.o: src/Game.cpp.o
 .PHONY : src/Game.o
 
@@ -309,6 +333,9 @@ help:
 	@echo "... src/Console.o"
 	@echo "... src/Console.i"
 	@echo "... src/Console.s"
+	@echo "... src/ConsoleUI.o"
+	@echo "... src/ConsoleUI.i"
+	@echo "... src/ConsoleUI.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
