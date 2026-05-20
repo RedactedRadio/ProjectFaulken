@@ -3,13 +3,16 @@
 
 #include <string>
 
+class IGameUI;
+
 class GameOver {
 public:
-    GameOver();
+    GameOver(IGameUI* ui);
     
     void gameOverTxt();
     
 private:
+    IGameUI* ui;
     void gameOverPrint(const std::string& text);
     void clearScreen() const;
 };

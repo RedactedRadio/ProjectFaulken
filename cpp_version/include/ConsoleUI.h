@@ -3,6 +3,7 @@
 
 #include "IGameUI.h"
 #include <string>
+#include <vector>
 
 class ConsoleUI : public IGameUI {
 public:
@@ -15,6 +16,8 @@ public:
     void setColor(const std::string& colorCode) override;
     void resetColor() override;
     void showImage(const std::string& imageId) override;
+    void printLines(const std::vector<std::string>& lines) override;
+    bool isQuitRequested() const override;
 
 private:
     void systemClear() const;

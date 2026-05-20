@@ -48,3 +48,13 @@ void ConsoleUI::resetColor() {
 void ConsoleUI::showImage(const std::string& imageId) {
     std::cout << "[UI] showImage('" << imageId << "')\n";
 }
+
+void ConsoleUI::printLines(const std::vector<std::string>& lines) {
+    for (const auto& line : lines) {
+        printLine(line);
+    }
+}
+
+bool ConsoleUI::isQuitRequested() const {
+    return false;
+}

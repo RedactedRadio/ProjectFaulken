@@ -97,10 +97,38 @@ CMakeFiles/faulken.dir/src/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/Player.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/Player.cpp -o CMakeFiles/faulken.dir/src/Player.cpp.s
 
+CMakeFiles/faulken.dir/src/PlayerActions.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/PlayerActions.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerActions.cpp
+CMakeFiles/faulken.dir/src/PlayerActions.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/faulken.dir/src/PlayerActions.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/PlayerActions.cpp.o -MF CMakeFiles/faulken.dir/src/PlayerActions.cpp.o.d -o CMakeFiles/faulken.dir/src/PlayerActions.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerActions.cpp
+
+CMakeFiles/faulken.dir/src/PlayerActions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/PlayerActions.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerActions.cpp > CMakeFiles/faulken.dir/src/PlayerActions.cpp.i
+
+CMakeFiles/faulken.dir/src/PlayerActions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/PlayerActions.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerActions.cpp -o CMakeFiles/faulken.dir/src/PlayerActions.cpp.s
+
+CMakeFiles/faulken.dir/src/PlayerSave.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/PlayerSave.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerSave.cpp
+CMakeFiles/faulken.dir/src/PlayerSave.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/faulken.dir/src/PlayerSave.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/PlayerSave.cpp.o -MF CMakeFiles/faulken.dir/src/PlayerSave.cpp.o.d -o CMakeFiles/faulken.dir/src/PlayerSave.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerSave.cpp
+
+CMakeFiles/faulken.dir/src/PlayerSave.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/PlayerSave.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerSave.cpp > CMakeFiles/faulken.dir/src/PlayerSave.cpp.i
+
+CMakeFiles/faulken.dir/src/PlayerSave.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/PlayerSave.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/PlayerSave.cpp -o CMakeFiles/faulken.dir/src/PlayerSave.cpp.s
+
 CMakeFiles/faulken.dir/src/Console.cpp.o: CMakeFiles/faulken.dir/flags.make
 CMakeFiles/faulken.dir/src/Console.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/Console.cpp
 CMakeFiles/faulken.dir/src/Console.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/faulken.dir/src/Console.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/faulken.dir/src/Console.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/Console.cpp.o -MF CMakeFiles/faulken.dir/src/Console.cpp.o.d -o CMakeFiles/faulken.dir/src/Console.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/Console.cpp
 
 CMakeFiles/faulken.dir/src/Console.cpp.i: cmake_force
@@ -114,7 +142,7 @@ CMakeFiles/faulken.dir/src/Console.cpp.s: cmake_force
 CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o: CMakeFiles/faulken.dir/flags.make
 CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/ConsoleUI.cpp
 CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o -MF CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o.d -o CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/ConsoleUI.cpp
 
 CMakeFiles/faulken.dir/src/ConsoleUI.cpp.i: cmake_force
@@ -128,7 +156,7 @@ CMakeFiles/faulken.dir/src/ConsoleUI.cpp.s: cmake_force
 CMakeFiles/faulken.dir/src/Game.cpp.o: CMakeFiles/faulken.dir/flags.make
 CMakeFiles/faulken.dir/src/Game.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/Game.cpp
 CMakeFiles/faulken.dir/src/Game.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/faulken.dir/src/Game.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/faulken.dir/src/Game.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/Game.cpp.o -MF CMakeFiles/faulken.dir/src/Game.cpp.o.d -o CMakeFiles/faulken.dir/src/Game.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/Game.cpp
 
 CMakeFiles/faulken.dir/src/Game.cpp.i: cmake_force
@@ -139,10 +167,80 @@ CMakeFiles/faulken.dir/src/Game.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/Game.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/Game.cpp -o CMakeFiles/faulken.dir/src/Game.cpp.s
 
+CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandHistory.cpp
+CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o -MF CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o.d -o CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandHistory.cpp
+
+CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandHistory.cpp > CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.i
+
+CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandHistory.cpp -o CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.s
+
+CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandParsing.cpp
+CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o -MF CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o.d -o CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandParsing.cpp
+
+CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandParsing.cpp > CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.i
+
+CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommandParsing.cpp -o CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.s
+
+CMakeFiles/faulken.dir/src/GameCommands.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/GameCommands.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommands.cpp
+CMakeFiles/faulken.dir/src/GameCommands.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/faulken.dir/src/GameCommands.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/GameCommands.cpp.o -MF CMakeFiles/faulken.dir/src/GameCommands.cpp.o.d -o CMakeFiles/faulken.dir/src/GameCommands.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommands.cpp
+
+CMakeFiles/faulken.dir/src/GameCommands.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/GameCommands.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommands.cpp > CMakeFiles/faulken.dir/src/GameCommands.cpp.i
+
+CMakeFiles/faulken.dir/src/GameCommands.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/GameCommands.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/GameCommands.cpp -o CMakeFiles/faulken.dir/src/GameCommands.cpp.s
+
+CMakeFiles/faulken.dir/src/GameEffects.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/GameEffects.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/GameEffects.cpp
+CMakeFiles/faulken.dir/src/GameEffects.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/faulken.dir/src/GameEffects.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/GameEffects.cpp.o -MF CMakeFiles/faulken.dir/src/GameEffects.cpp.o.d -o CMakeFiles/faulken.dir/src/GameEffects.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/GameEffects.cpp
+
+CMakeFiles/faulken.dir/src/GameEffects.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/GameEffects.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/GameEffects.cpp > CMakeFiles/faulken.dir/src/GameEffects.cpp.i
+
+CMakeFiles/faulken.dir/src/GameEffects.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/GameEffects.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/GameEffects.cpp -o CMakeFiles/faulken.dir/src/GameEffects.cpp.s
+
+CMakeFiles/faulken.dir/src/GameNavigation.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/GameNavigation.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/GameNavigation.cpp
+CMakeFiles/faulken.dir/src/GameNavigation.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/faulken.dir/src/GameNavigation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/GameNavigation.cpp.o -MF CMakeFiles/faulken.dir/src/GameNavigation.cpp.o.d -o CMakeFiles/faulken.dir/src/GameNavigation.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/GameNavigation.cpp
+
+CMakeFiles/faulken.dir/src/GameNavigation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/GameNavigation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/GameNavigation.cpp > CMakeFiles/faulken.dir/src/GameNavigation.cpp.i
+
+CMakeFiles/faulken.dir/src/GameNavigation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/GameNavigation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/GameNavigation.cpp -o CMakeFiles/faulken.dir/src/GameNavigation.cpp.s
+
 CMakeFiles/faulken.dir/src/GameOver.cpp.o: CMakeFiles/faulken.dir/flags.make
 CMakeFiles/faulken.dir/src/GameOver.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/GameOver.cpp
 CMakeFiles/faulken.dir/src/GameOver.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/faulken.dir/src/GameOver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/faulken.dir/src/GameOver.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/GameOver.cpp.o -MF CMakeFiles/faulken.dir/src/GameOver.cpp.o.d -o CMakeFiles/faulken.dir/src/GameOver.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/GameOver.cpp
 
 CMakeFiles/faulken.dir/src/GameOver.cpp.i: cmake_force
@@ -153,10 +251,24 @@ CMakeFiles/faulken.dir/src/GameOver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/GameOver.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/GameOver.cpp -o CMakeFiles/faulken.dir/src/GameOver.cpp.s
 
+CMakeFiles/faulken.dir/src/GameRooms.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/GameRooms.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/GameRooms.cpp
+CMakeFiles/faulken.dir/src/GameRooms.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/faulken.dir/src/GameRooms.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/GameRooms.cpp.o -MF CMakeFiles/faulken.dir/src/GameRooms.cpp.o.d -o CMakeFiles/faulken.dir/src/GameRooms.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/GameRooms.cpp
+
+CMakeFiles/faulken.dir/src/GameRooms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/GameRooms.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/GameRooms.cpp > CMakeFiles/faulken.dir/src/GameRooms.cpp.i
+
+CMakeFiles/faulken.dir/src/GameRooms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/GameRooms.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/GameRooms.cpp -o CMakeFiles/faulken.dir/src/GameRooms.cpp.s
+
 CMakeFiles/faulken.dir/src/MapBase.cpp.o: CMakeFiles/faulken.dir/flags.make
 CMakeFiles/faulken.dir/src/MapBase.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBase.cpp
 CMakeFiles/faulken.dir/src/MapBase.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/faulken.dir/src/MapBase.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/faulken.dir/src/MapBase.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/MapBase.cpp.o -MF CMakeFiles/faulken.dir/src/MapBase.cpp.o.d -o CMakeFiles/faulken.dir/src/MapBase.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBase.cpp
 
 CMakeFiles/faulken.dir/src/MapBase.cpp.i: cmake_force
@@ -167,10 +279,66 @@ CMakeFiles/faulken.dir/src/MapBase.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/MapBase.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBase.cpp -o CMakeFiles/faulken.dir/src/MapBase.cpp.s
 
+CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseComputer.cpp
+CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o -MF CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o.d -o CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseComputer.cpp
+
+CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseComputer.cpp > CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.i
+
+CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseComputer.cpp -o CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.s
+
+CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseFacilities.cpp
+CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o -MF CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o.d -o CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseFacilities.cpp
+
+CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseFacilities.cpp > CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.i
+
+CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseFacilities.cpp -o CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.s
+
+CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseOffice.cpp
+CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o -MF CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o.d -o CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseOffice.cpp
+
+CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseOffice.cpp > CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.i
+
+CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseOffice.cpp -o CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.s
+
+CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseZero.cpp
+CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o -MF CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o.d -o CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseZero.cpp
+
+CMakeFiles/faulken.dir/src/MapBaseZero.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/MapBaseZero.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseZero.cpp > CMakeFiles/faulken.dir/src/MapBaseZero.cpp.i
+
+CMakeFiles/faulken.dir/src/MapBaseZero.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/MapBaseZero.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/MapBaseZero.cpp -o CMakeFiles/faulken.dir/src/MapBaseZero.cpp.s
+
 CMakeFiles/faulken.dir/src/TitleScreen.cpp.o: CMakeFiles/faulken.dir/flags.make
 CMakeFiles/faulken.dir/src/TitleScreen.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp
 CMakeFiles/faulken.dir/src/TitleScreen.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/faulken.dir/src/TitleScreen.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/faulken.dir/src/TitleScreen.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/TitleScreen.cpp.o -MF CMakeFiles/faulken.dir/src/TitleScreen.cpp.o.d -o CMakeFiles/faulken.dir/src/TitleScreen.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp
 
 CMakeFiles/faulken.dir/src/TitleScreen.cpp.i: cmake_force
@@ -181,31 +349,119 @@ CMakeFiles/faulken.dir/src/TitleScreen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/TitleScreen.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp -o CMakeFiles/faulken.dir/src/TitleScreen.cpp.s
 
+CMakeFiles/faulken.dir/src/WindowUI.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/WindowUI.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUI.cpp
+CMakeFiles/faulken.dir/src/WindowUI.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/faulken.dir/src/WindowUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/WindowUI.cpp.o -MF CMakeFiles/faulken.dir/src/WindowUI.cpp.o.d -o CMakeFiles/faulken.dir/src/WindowUI.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUI.cpp
+
+CMakeFiles/faulken.dir/src/WindowUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/WindowUI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUI.cpp > CMakeFiles/faulken.dir/src/WindowUI.cpp.i
+
+CMakeFiles/faulken.dir/src/WindowUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/WindowUI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUI.cpp -o CMakeFiles/faulken.dir/src/WindowUI.cpp.s
+
+CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIInput.cpp
+CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o -MF CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o.d -o CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIInput.cpp
+
+CMakeFiles/faulken.dir/src/WindowUIInput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/WindowUIInput.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIInput.cpp > CMakeFiles/faulken.dir/src/WindowUIInput.cpp.i
+
+CMakeFiles/faulken.dir/src/WindowUIInput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/WindowUIInput.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIInput.cpp -o CMakeFiles/faulken.dir/src/WindowUIInput.cpp.s
+
+CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIOutput.cpp
+CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o -MF CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o.d -o CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIOutput.cpp
+
+CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIOutput.cpp > CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.i
+
+CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIOutput.cpp -o CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.s
+
+CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o: CMakeFiles/faulken.dir/flags.make
+CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o: /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIRender.cpp
+CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o: CMakeFiles/faulken.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o -MF CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o.d -o CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o -c /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIRender.cpp
+
+CMakeFiles/faulken.dir/src/WindowUIRender.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/faulken.dir/src/WindowUIRender.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIRender.cpp > CMakeFiles/faulken.dir/src/WindowUIRender.cpp.i
+
+CMakeFiles/faulken.dir/src/WindowUIRender.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/faulken.dir/src/WindowUIRender.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/blackflag/code/ProjectFaulken/cpp_version/src/WindowUIRender.cpp -o CMakeFiles/faulken.dir/src/WindowUIRender.cpp.s
+
 # Object files for target faulken
 faulken_OBJECTS = \
 "CMakeFiles/faulken.dir/src/main.cpp.o" \
 "CMakeFiles/faulken.dir/src/Player.cpp.o" \
+"CMakeFiles/faulken.dir/src/PlayerActions.cpp.o" \
+"CMakeFiles/faulken.dir/src/PlayerSave.cpp.o" \
 "CMakeFiles/faulken.dir/src/Console.cpp.o" \
 "CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o" \
 "CMakeFiles/faulken.dir/src/Game.cpp.o" \
+"CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o" \
+"CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o" \
+"CMakeFiles/faulken.dir/src/GameCommands.cpp.o" \
+"CMakeFiles/faulken.dir/src/GameEffects.cpp.o" \
+"CMakeFiles/faulken.dir/src/GameNavigation.cpp.o" \
 "CMakeFiles/faulken.dir/src/GameOver.cpp.o" \
+"CMakeFiles/faulken.dir/src/GameRooms.cpp.o" \
 "CMakeFiles/faulken.dir/src/MapBase.cpp.o" \
-"CMakeFiles/faulken.dir/src/TitleScreen.cpp.o"
+"CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o" \
+"CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o" \
+"CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o" \
+"CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o" \
+"CMakeFiles/faulken.dir/src/TitleScreen.cpp.o" \
+"CMakeFiles/faulken.dir/src/WindowUI.cpp.o" \
+"CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o" \
+"CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o" \
+"CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o"
 
 # External object files for target faulken
 faulken_EXTERNAL_OBJECTS =
 
 faulken: CMakeFiles/faulken.dir/src/main.cpp.o
 faulken: CMakeFiles/faulken.dir/src/Player.cpp.o
+faulken: CMakeFiles/faulken.dir/src/PlayerActions.cpp.o
+faulken: CMakeFiles/faulken.dir/src/PlayerSave.cpp.o
 faulken: CMakeFiles/faulken.dir/src/Console.cpp.o
 faulken: CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o
 faulken: CMakeFiles/faulken.dir/src/Game.cpp.o
+faulken: CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o
+faulken: CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o
+faulken: CMakeFiles/faulken.dir/src/GameCommands.cpp.o
+faulken: CMakeFiles/faulken.dir/src/GameEffects.cpp.o
+faulken: CMakeFiles/faulken.dir/src/GameNavigation.cpp.o
 faulken: CMakeFiles/faulken.dir/src/GameOver.cpp.o
+faulken: CMakeFiles/faulken.dir/src/GameRooms.cpp.o
 faulken: CMakeFiles/faulken.dir/src/MapBase.cpp.o
+faulken: CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o
+faulken: CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o
+faulken: CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o
+faulken: CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o
 faulken: CMakeFiles/faulken.dir/src/TitleScreen.cpp.o
+faulken: CMakeFiles/faulken.dir/src/WindowUI.cpp.o
+faulken: CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o
+faulken: CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o
+faulken: CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o
 faulken: CMakeFiles/faulken.dir/build.make
 faulken: CMakeFiles/faulken.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable faulken"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/blackflag/code/ProjectFaulken/cpp_version/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable faulken"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/faulken.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

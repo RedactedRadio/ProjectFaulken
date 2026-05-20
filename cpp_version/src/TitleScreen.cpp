@@ -1,30 +1,26 @@
 #include "TitleScreen.h"
-#include <iostream>
-#include <cstdlib>
+#include "IGameUI.h"
 #include <chrono>
 #include <thread>
 
-TitleScreen::TitleScreen() {
+TitleScreen::TitleScreen(IGameUI* ui)
+    : ui(ui) {
 }
 
 void TitleScreen::clearScreen() const {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+    if (ui) ui->clearScreen();
 }
 
 void TitleScreen::slowPrint(const std::string& text, double delayMs) {
     for (char c : text) {
-        std::cout << c << std::flush;
+        if (ui) ui->print(std::string(1, c));
         std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(delayMs)));
     }
 }
 
 void TitleScreen::typingPrint(const std::string& text, double delayMs) {
     for (char c : text) {
-        std::cout << c << std::flush;
+        if (ui) ui->print(std::string(1, c));
         std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(delayMs)));
     }
 }
@@ -53,9 +49,9 @@ int TitleScreen::display() {
     std::this_thread::sleep_for(std::chrono::seconds(1));
     typingPrint("Shall we play a game?", 0.015);
     
-    std::cout << "\n\n\nEnter <1> for a new game. Enter <2> to resume progress. Enter <X> to exit: ";
+    if (ui) ui->print("\n\n\nEnter <1> for a new game. Enter <2> to resume progress. Enter <X> to exit: ");
     std::string choice;
-    std::getline(std::cin, choice);
+    if (ui) choice = ui->readLine();
     
     if (choice == "1") {
         return 1;
@@ -65,7 +61,7 @@ int TitleScreen::display() {
         clearScreen();
         return 0;
     } else {
-        std::cout << "Invalid choice. Please try again.\n";
+        if (ui) ui->printLine("Invalid choice. Please try again.");
         return display();
     }
 }

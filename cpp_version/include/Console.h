@@ -4,10 +4,11 @@
 #include <string>
 
 class Game;  // Forward declaration
+class IGameUI;
 
 class Console {
 public:
-    Console();
+    explicit Console(IGameUI* ui);
     
     void startTerminal();
     void funcConsole();
@@ -20,6 +21,8 @@ private:
     std::string varCmd;
     std::string decryptCmd;
     std::string filename;
+    IGameUI* ui;
+    bool active;
     
     void funcCmdStop();
     void funcCmdHelp();
@@ -27,6 +30,9 @@ private:
     void funcCmdOpen();
     void funcOpenCrypto();
     void clearScreen() const;
+    void printTerminal(const std::string& text) const;
+    void printTerminalLine(const std::string& text) const;
+    std::string readTerminalLine();
 };
 
 #endif

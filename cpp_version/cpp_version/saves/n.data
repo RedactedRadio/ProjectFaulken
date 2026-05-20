@@ -1,0 +1,8 @@
+{
+    "level": 1,
+    "loot": {
+        "ID badge": "Your metal ID badge is made from the latest technology.",
+        "flashlight": "automatically turns on in low light."
+    },
+    "name": "n"
+}

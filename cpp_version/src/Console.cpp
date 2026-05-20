@@ -1,123 +1,156 @@
 #include "Console.h"
-#include "Game.h"
-#include <iostream>
-#include <cstdlib>
-#include <chrono>
-#include <thread>
+#include "IGameUI.h"
 
-Console::Console() 
-    : CRED("\u001b[31m"), CEND("\033[0m") {
+Console::Console(IGameUI* ui)
+    : CRED("\u001b[31m")
+    , CEND("\033[0m")
+    , ui(ui)
+    , active(false) {
 }
 
 void Console::clearScreen() const {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+    if (ui) {
+        ui->clearScreen();
+    }
+}
+
+void Console::printTerminal(const std::string& text) const {
+    if (!ui) {
+        return;
+    }
+
+    ui->setColor(CRED);
+    ui->print(text);
+    ui->resetColor();
+}
+
+void Console::printTerminalLine(const std::string& text) const {
+    if (!ui) {
+        return;
+    }
+
+    ui->setColor(CRED);
+    ui->printLine(text);
+    ui->resetColor();
+}
+
+std::string Console::readTerminalLine() {
+    if (!ui) {
+        return "";
+    }
+    return ui->readLine();
 }
 
 void Console::startTerminal() {
+    active = true;
     clearScreen();
-    
-    std::cout << CRED << " ===================================================================" << CEND << "\n";
-    std::cout << CRED << " CENTRAL INTELLIGENCE MAINFRAME TERMINAL.      AUTHORIZED USERS ONLY." << CEND << "\n";
-    std::cout << CRED << " ===================================================================" << CEND << "\n";
-    std::cout << "\n\n\n";
-    std::cout << CRED << "Enter your authentication credentials.\n" << CEND;
-    
+
+    printTerminalLine(" ===================================================================");
+    printTerminalLine(" CENTRAL INTELLIGENCE MAINFRAME TERMINAL.      AUTHORIZED USERS ONLY.");
+    printTerminalLine(" ===================================================================");
+    ui->printLine("");
+    ui->printLine("");
+    ui->printLine("");
+    printTerminalLine("Enter your authentication credentials.");
+
     funcCheckCred();
 }
 
 void Console::funcCheckCred() {
-    std::cout << CRED << "Enter User ID: " << CEND;
-    std::getline(std::cin, varUser);
-    
-    std::cout << CRED << "Scanning SuperCrypt ID Badge.";
-    std::cout.flush();
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    std::cout << ".";
-    std::cout.flush();
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    std::cout << ".\n" << CEND;
-    std::cout.flush();
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
-    
-    if (varUser == "Faulken, S.") {
-        std::cout << CRED << "User Faulken, S. - ACCESS GRANTED" << CEND << "\n";
-        funcConsole();
-    } else {
-        std::cout << CRED << "ACCESS DENIED" << CEND << "\n";
-        funcCheckCred();
+    while (active) {
+        printTerminal("Enter User ID: ");
+        varUser = readTerminalLine();
+
+        printTerminal("Scanning SuperCrypt ID Badge.");
+        ui->sleepMs(500);
+        printTerminal(".");
+        ui->sleepMs(500);
+        printTerminalLine(".");
+        ui->sleepMs(500);
+
+        if (varUser == "Faulken, S.") {
+            printTerminalLine("User Faulken, S. - ACCESS GRANTED");
+            funcConsole();
+            return;
+        }
+
+        printTerminalLine("ACCESS DENIED");
     }
 }
 
 void Console::funcConsole() {
-    std::cout << "?: ";
-    std::getline(std::cin, varCmd);
-    
-    if (varCmd == "--help") {
-        funcCmdHelp();
-    } else if (varCmd == "stop") {
-        funcCmdStop();
-    } else if (varCmd == "ls") {
-        funcCmdLs();
-    } else if (varCmd == "open") {
-        funcCmdOpen();
-    } else if (varCmd == "crypto") {
-        funcOpenCrypto();
-    } else {
-        std::cout << CRED << "Invalid Command. Type --help for command list." << CEND << "\n";
-        funcConsole();
+    while (active) {
+        ui->print("?: ");
+        varCmd = readTerminalLine();
+
+        if (varCmd == "--help") {
+            funcCmdHelp();
+        } else if (varCmd == "stop") {
+            funcCmdStop();
+        } else if (varCmd == "ls") {
+            funcCmdLs();
+        } else if (varCmd == "open") {
+            funcCmdOpen();
+        } else if (varCmd == "crypto") {
+            funcOpenCrypto();
+        } else {
+            printTerminalLine("Invalid Command. Type --help for command list.");
+        }
     }
 }
 
 void Console::funcCmdHelp() {
-    std::cout << CRED << "\n\nCommand List\n" << CEND;
-    std::cout << CRED << "--" << CEND << "\n";
-    std::cout << CRED << "ls     - directory listing" << CEND << "\n";
-    std::cout << CRED << "open   - opens file" << CEND << "\n";
-    std::cout << CRED << "crypto - opens decrytion package" << CEND << "\n";
-    std::cout << CRED << "stop   - Exit Terminal.\n" << CEND;
-    funcConsole();
+    printTerminalLine("");
+    printTerminalLine("");
+    printTerminalLine("Command List");
+    printTerminalLine("--");
+    printTerminalLine("ls     - directory listing");
+    printTerminalLine("open   - opens file");
+    printTerminalLine("crypto - opens decrytion package");
+    printTerminalLine("stop   - Exit Terminal.");
 }
 
 void Console::funcCmdLs() {
-    std::cout << CRED << "\nContents of:\n             /user...\n" << CEND;
-    std::cout << CRED << "readme.txt   msg1.###    img1.###" << CEND << "\n";
-    std::cout << CRED << "msg2.###     pwdList.### codes.###" << CEND << "\n";
-    std::cout << CRED << "9thFloor_Map.###" << CEND << "\n";
-    funcConsole();
+    printTerminalLine("");
+    printTerminalLine("Contents of:");
+    printTerminalLine("             /user...");
+    printTerminalLine("readme.txt   msg1.###    img1.###");
+    printTerminalLine("msg2.###     pwdList.### codes.###");
+    printTerminalLine("9thFloor_Map.###");
 }
 
 void Console::funcCmdOpen() {
-    std::cout << CRED << "Enter the filename to open:" << CEND;
-    std::getline(std::cin, filename);
-    
-    std::cout << CRED << "\nThis file is encrypted with 1024 bit SuperCrypt technology... \n";
-    std::cout << "Contents are not able to be displayed.\n" << CEND;
-    funcConsole();
+    printTerminal("Enter the filename to open: ");
+    filename = readTerminalLine();
+
+    printTerminalLine("");
+    printTerminalLine("This file is encrypted with 1024 bit SuperCrypt technology...");
+    printTerminalLine("Contents are not able to be displayed.");
 }
 
 void Console::funcOpenCrypto() {
-    std::cout << CRED << "Enter the code to decrypt:> " << CEND;
-    std::getline(std::cin, decryptCmd);
-    
-    if (decryptCmd == "EPEbddftt") {
-        clearScreen();
-        std::cout << CRED << "\nLoading NSA Decryption Engine..." << CEND << "\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        std::cout << CRED << "\nGenerating Hash Algorithms..." << CEND << "\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        std::cout << CRED << "\nDecryption Complete.\nDECRYPTED CODE:" << CEND << "      DODaccess\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        funcConsole();
-    } else {
-        std::cout << CRED << "Encryption algorithm not found. Unable to decrypt." << CEND << "\n";
-        funcOpenCrypto();
+    while (active) {
+        printTerminal("Enter the code to decrypt:> ");
+        decryptCmd = readTerminalLine();
+
+        if (decryptCmd == "EPEbddftt") {
+            clearScreen();
+            printTerminalLine("Loading NSA Decryption Engine...");
+            ui->sleepMs(500);
+            printTerminalLine("");
+            printTerminalLine("Generating Hash Algorithms...");
+            ui->sleepMs(500);
+            printTerminal("Decryption Complete.\nDECRYPTED CODE:");
+            ui->printLine("      DODaccess");
+            ui->sleepMs(500);
+            return;
+        }
+
+        printTerminalLine("Encryption algorithm not found. Unable to decrypt.");
     }
 }
 
 void Console::funcCmdStop() {
-    // Return to game
+    printTerminalLine("Closing terminal session.");
+    active = false;
 }

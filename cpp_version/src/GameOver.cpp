@@ -1,24 +1,19 @@
 #include "GameOver.h"
-#include <iostream>
-#include <cstdlib>
+#include "IGameUI.h"
 #include <chrono>
 #include <thread>
-#include <fstream>
 
-GameOver::GameOver() {
+GameOver::GameOver(IGameUI* ui)
+    : ui(ui) {
 }
 
 void GameOver::clearScreen() const {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+    if (ui) ui->clearScreen();
 }
 
 void GameOver::gameOverPrint(const std::string& text) {
     for (char c : text) {
-        std::cout << c << std::flush;
+        if (ui) ui->print(std::string(1, c));
         std::this_thread::sleep_for(std::chrono::milliseconds(9));
     }
 }
@@ -26,14 +21,14 @@ void GameOver::gameOverPrint(const std::string& text) {
 void GameOver::gameOverTxt() {
     clearScreen();
     gameOverPrint(" ██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(150));
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint("██       ██   ██ ████  ████ ██          ██    ██ ██    ██ ██      ██   ██\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(150));
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint("██   ███ ███████ ██ ████ ██ █████       ██    ██ ██    ██ █████   ██████\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(150));
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint("██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(150));
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint(" ██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██\n");
-    std::cout << "\nGoodbye!\n";
+    if (ui) ui->printLine("\nGoodbye!");
     exit(0);
 }

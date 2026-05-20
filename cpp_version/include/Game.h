@@ -39,6 +39,7 @@ public:
         bool elevatorPowered = false;
         bool switchesLocked = true;
         bool shouldExit = false;
+        bool controlAccessPending = false;
         std::deque<std::string> commandHistory;
         size_t historyIndex = 0;
         bool enableSound = true;
@@ -95,8 +96,8 @@ private:
     std::map<Room, RoomData> roomData;
     std::string desc;
     std::map<std::string, std::string> items;
-    Player player;
     IGameUI* ui;
+    Player player;
     
     // Command aliases for better UX
     std::map<std::string, std::string> commandAliases = {
@@ -112,7 +113,10 @@ private:
     void handleInput(const std::string& move);
     bool moveDirection(const std::string& direction);
     std::string roomName(Room room) const;
+    void printRoomHeader(Room room) const;
     void printNavInfo() const;
+    void printRoomNavInfo() const;
+    void printCompactRoomNavInfo() const;
 };
 
 #endif

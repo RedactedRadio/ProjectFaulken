@@ -6,16 +6,18 @@
 #include <vector>
 
 class Game;  // Forward declaration
+class IGameUI;
 
 class Player {
 public:
     Player();
+    Player(IGameUI* ui);
     
     // Game actions
     void actions(Game* game);
     void inventory() const;
     void take(const std::map<std::string, std::string>& items);
-    void map(int pos) const;
+    void map(int pos, IGameUI* ui) const;
     void help() const;
     void look(int pos, const std::map<std::string, std::string>& items, const std::map<std::string, std::string>& playerLoot) const;
     
@@ -37,6 +39,7 @@ private:
     std::string name;
     std::string saveData;
     std::string readData;
+    IGameUI* ui = nullptr;
     
     void printSlowText(const std::string& text, double delayMs = 0.009) const;
 };

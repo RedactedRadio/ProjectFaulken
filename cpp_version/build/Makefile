@@ -201,6 +201,126 @@ src/Game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/Game.cpp.s
 .PHONY : src/Game.cpp.s
 
+src/GameCommandHistory.o: src/GameCommandHistory.cpp.o
+.PHONY : src/GameCommandHistory.o
+
+# target to build an object file
+src/GameCommandHistory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.o
+.PHONY : src/GameCommandHistory.cpp.o
+
+src/GameCommandHistory.i: src/GameCommandHistory.cpp.i
+.PHONY : src/GameCommandHistory.i
+
+# target to preprocess a source file
+src/GameCommandHistory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.i
+.PHONY : src/GameCommandHistory.cpp.i
+
+src/GameCommandHistory.s: src/GameCommandHistory.cpp.s
+.PHONY : src/GameCommandHistory.s
+
+# target to generate assembly for a file
+src/GameCommandHistory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommandHistory.cpp.s
+.PHONY : src/GameCommandHistory.cpp.s
+
+src/GameCommandParsing.o: src/GameCommandParsing.cpp.o
+.PHONY : src/GameCommandParsing.o
+
+# target to build an object file
+src/GameCommandParsing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.o
+.PHONY : src/GameCommandParsing.cpp.o
+
+src/GameCommandParsing.i: src/GameCommandParsing.cpp.i
+.PHONY : src/GameCommandParsing.i
+
+# target to preprocess a source file
+src/GameCommandParsing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.i
+.PHONY : src/GameCommandParsing.cpp.i
+
+src/GameCommandParsing.s: src/GameCommandParsing.cpp.s
+.PHONY : src/GameCommandParsing.s
+
+# target to generate assembly for a file
+src/GameCommandParsing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommandParsing.cpp.s
+.PHONY : src/GameCommandParsing.cpp.s
+
+src/GameCommands.o: src/GameCommands.cpp.o
+.PHONY : src/GameCommands.o
+
+# target to build an object file
+src/GameCommands.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommands.cpp.o
+.PHONY : src/GameCommands.cpp.o
+
+src/GameCommands.i: src/GameCommands.cpp.i
+.PHONY : src/GameCommands.i
+
+# target to preprocess a source file
+src/GameCommands.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommands.cpp.i
+.PHONY : src/GameCommands.cpp.i
+
+src/GameCommands.s: src/GameCommands.cpp.s
+.PHONY : src/GameCommands.s
+
+# target to generate assembly for a file
+src/GameCommands.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameCommands.cpp.s
+.PHONY : src/GameCommands.cpp.s
+
+src/GameEffects.o: src/GameEffects.cpp.o
+.PHONY : src/GameEffects.o
+
+# target to build an object file
+src/GameEffects.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameEffects.cpp.o
+.PHONY : src/GameEffects.cpp.o
+
+src/GameEffects.i: src/GameEffects.cpp.i
+.PHONY : src/GameEffects.i
+
+# target to preprocess a source file
+src/GameEffects.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameEffects.cpp.i
+.PHONY : src/GameEffects.cpp.i
+
+src/GameEffects.s: src/GameEffects.cpp.s
+.PHONY : src/GameEffects.s
+
+# target to generate assembly for a file
+src/GameEffects.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameEffects.cpp.s
+.PHONY : src/GameEffects.cpp.s
+
+src/GameNavigation.o: src/GameNavigation.cpp.o
+.PHONY : src/GameNavigation.o
+
+# target to build an object file
+src/GameNavigation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameNavigation.cpp.o
+.PHONY : src/GameNavigation.cpp.o
+
+src/GameNavigation.i: src/GameNavigation.cpp.i
+.PHONY : src/GameNavigation.i
+
+# target to preprocess a source file
+src/GameNavigation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameNavigation.cpp.i
+.PHONY : src/GameNavigation.cpp.i
+
+src/GameNavigation.s: src/GameNavigation.cpp.s
+.PHONY : src/GameNavigation.s
+
+# target to generate assembly for a file
+src/GameNavigation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameNavigation.cpp.s
+.PHONY : src/GameNavigation.cpp.s
+
 src/GameOver.o: src/GameOver.cpp.o
 .PHONY : src/GameOver.o
 
@@ -224,6 +344,30 @@ src/GameOver.s: src/GameOver.cpp.s
 src/GameOver.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameOver.cpp.s
 .PHONY : src/GameOver.cpp.s
+
+src/GameRooms.o: src/GameRooms.cpp.o
+.PHONY : src/GameRooms.o
+
+# target to build an object file
+src/GameRooms.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameRooms.cpp.o
+.PHONY : src/GameRooms.cpp.o
+
+src/GameRooms.i: src/GameRooms.cpp.i
+.PHONY : src/GameRooms.i
+
+# target to preprocess a source file
+src/GameRooms.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameRooms.cpp.i
+.PHONY : src/GameRooms.cpp.i
+
+src/GameRooms.s: src/GameRooms.cpp.s
+.PHONY : src/GameRooms.s
+
+# target to generate assembly for a file
+src/GameRooms.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/GameRooms.cpp.s
+.PHONY : src/GameRooms.cpp.s
 
 src/MapBase.o: src/MapBase.cpp.o
 .PHONY : src/MapBase.o
@@ -249,6 +393,102 @@ src/MapBase.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBase.cpp.s
 .PHONY : src/MapBase.cpp.s
 
+src/MapBaseComputer.o: src/MapBaseComputer.cpp.o
+.PHONY : src/MapBaseComputer.o
+
+# target to build an object file
+src/MapBaseComputer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o
+.PHONY : src/MapBaseComputer.cpp.o
+
+src/MapBaseComputer.i: src/MapBaseComputer.cpp.i
+.PHONY : src/MapBaseComputer.i
+
+# target to preprocess a source file
+src/MapBaseComputer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.i
+.PHONY : src/MapBaseComputer.cpp.i
+
+src/MapBaseComputer.s: src/MapBaseComputer.cpp.s
+.PHONY : src/MapBaseComputer.s
+
+# target to generate assembly for a file
+src/MapBaseComputer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.s
+.PHONY : src/MapBaseComputer.cpp.s
+
+src/MapBaseFacilities.o: src/MapBaseFacilities.cpp.o
+.PHONY : src/MapBaseFacilities.o
+
+# target to build an object file
+src/MapBaseFacilities.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o
+.PHONY : src/MapBaseFacilities.cpp.o
+
+src/MapBaseFacilities.i: src/MapBaseFacilities.cpp.i
+.PHONY : src/MapBaseFacilities.i
+
+# target to preprocess a source file
+src/MapBaseFacilities.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.i
+.PHONY : src/MapBaseFacilities.cpp.i
+
+src/MapBaseFacilities.s: src/MapBaseFacilities.cpp.s
+.PHONY : src/MapBaseFacilities.s
+
+# target to generate assembly for a file
+src/MapBaseFacilities.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.s
+.PHONY : src/MapBaseFacilities.cpp.s
+
+src/MapBaseOffice.o: src/MapBaseOffice.cpp.o
+.PHONY : src/MapBaseOffice.o
+
+# target to build an object file
+src/MapBaseOffice.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o
+.PHONY : src/MapBaseOffice.cpp.o
+
+src/MapBaseOffice.i: src/MapBaseOffice.cpp.i
+.PHONY : src/MapBaseOffice.i
+
+# target to preprocess a source file
+src/MapBaseOffice.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.i
+.PHONY : src/MapBaseOffice.cpp.i
+
+src/MapBaseOffice.s: src/MapBaseOffice.cpp.s
+.PHONY : src/MapBaseOffice.s
+
+# target to generate assembly for a file
+src/MapBaseOffice.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.s
+.PHONY : src/MapBaseOffice.cpp.s
+
+src/MapBaseZero.o: src/MapBaseZero.cpp.o
+.PHONY : src/MapBaseZero.o
+
+# target to build an object file
+src/MapBaseZero.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o
+.PHONY : src/MapBaseZero.cpp.o
+
+src/MapBaseZero.i: src/MapBaseZero.cpp.i
+.PHONY : src/MapBaseZero.i
+
+# target to preprocess a source file
+src/MapBaseZero.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseZero.cpp.i
+.PHONY : src/MapBaseZero.cpp.i
+
+src/MapBaseZero.s: src/MapBaseZero.cpp.s
+.PHONY : src/MapBaseZero.s
+
+# target to generate assembly for a file
+src/MapBaseZero.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/MapBaseZero.cpp.s
+.PHONY : src/MapBaseZero.cpp.s
+
 src/Player.o: src/Player.cpp.o
 .PHONY : src/Player.o
 
@@ -273,6 +513,54 @@ src/Player.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/Player.cpp.s
 .PHONY : src/Player.cpp.s
 
+src/PlayerActions.o: src/PlayerActions.cpp.o
+.PHONY : src/PlayerActions.o
+
+# target to build an object file
+src/PlayerActions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/PlayerActions.cpp.o
+.PHONY : src/PlayerActions.cpp.o
+
+src/PlayerActions.i: src/PlayerActions.cpp.i
+.PHONY : src/PlayerActions.i
+
+# target to preprocess a source file
+src/PlayerActions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/PlayerActions.cpp.i
+.PHONY : src/PlayerActions.cpp.i
+
+src/PlayerActions.s: src/PlayerActions.cpp.s
+.PHONY : src/PlayerActions.s
+
+# target to generate assembly for a file
+src/PlayerActions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/PlayerActions.cpp.s
+.PHONY : src/PlayerActions.cpp.s
+
+src/PlayerSave.o: src/PlayerSave.cpp.o
+.PHONY : src/PlayerSave.o
+
+# target to build an object file
+src/PlayerSave.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/PlayerSave.cpp.o
+.PHONY : src/PlayerSave.cpp.o
+
+src/PlayerSave.i: src/PlayerSave.cpp.i
+.PHONY : src/PlayerSave.i
+
+# target to preprocess a source file
+src/PlayerSave.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/PlayerSave.cpp.i
+.PHONY : src/PlayerSave.cpp.i
+
+src/PlayerSave.s: src/PlayerSave.cpp.s
+.PHONY : src/PlayerSave.s
+
+# target to generate assembly for a file
+src/PlayerSave.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/PlayerSave.cpp.s
+.PHONY : src/PlayerSave.cpp.s
+
 src/TitleScreen.o: src/TitleScreen.cpp.o
 .PHONY : src/TitleScreen.o
 
@@ -296,6 +584,102 @@ src/TitleScreen.s: src/TitleScreen.cpp.s
 src/TitleScreen.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/TitleScreen.cpp.s
 .PHONY : src/TitleScreen.cpp.s
+
+src/WindowUI.o: src/WindowUI.cpp.o
+.PHONY : src/WindowUI.o
+
+# target to build an object file
+src/WindowUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUI.cpp.o
+.PHONY : src/WindowUI.cpp.o
+
+src/WindowUI.i: src/WindowUI.cpp.i
+.PHONY : src/WindowUI.i
+
+# target to preprocess a source file
+src/WindowUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUI.cpp.i
+.PHONY : src/WindowUI.cpp.i
+
+src/WindowUI.s: src/WindowUI.cpp.s
+.PHONY : src/WindowUI.s
+
+# target to generate assembly for a file
+src/WindowUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUI.cpp.s
+.PHONY : src/WindowUI.cpp.s
+
+src/WindowUIInput.o: src/WindowUIInput.cpp.o
+.PHONY : src/WindowUIInput.o
+
+# target to build an object file
+src/WindowUIInput.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIInput.cpp.o
+.PHONY : src/WindowUIInput.cpp.o
+
+src/WindowUIInput.i: src/WindowUIInput.cpp.i
+.PHONY : src/WindowUIInput.i
+
+# target to preprocess a source file
+src/WindowUIInput.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIInput.cpp.i
+.PHONY : src/WindowUIInput.cpp.i
+
+src/WindowUIInput.s: src/WindowUIInput.cpp.s
+.PHONY : src/WindowUIInput.s
+
+# target to generate assembly for a file
+src/WindowUIInput.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIInput.cpp.s
+.PHONY : src/WindowUIInput.cpp.s
+
+src/WindowUIOutput.o: src/WindowUIOutput.cpp.o
+.PHONY : src/WindowUIOutput.o
+
+# target to build an object file
+src/WindowUIOutput.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.o
+.PHONY : src/WindowUIOutput.cpp.o
+
+src/WindowUIOutput.i: src/WindowUIOutput.cpp.i
+.PHONY : src/WindowUIOutput.i
+
+# target to preprocess a source file
+src/WindowUIOutput.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.i
+.PHONY : src/WindowUIOutput.cpp.i
+
+src/WindowUIOutput.s: src/WindowUIOutput.cpp.s
+.PHONY : src/WindowUIOutput.s
+
+# target to generate assembly for a file
+src/WindowUIOutput.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIOutput.cpp.s
+.PHONY : src/WindowUIOutput.cpp.s
+
+src/WindowUIRender.o: src/WindowUIRender.cpp.o
+.PHONY : src/WindowUIRender.o
+
+# target to build an object file
+src/WindowUIRender.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIRender.cpp.o
+.PHONY : src/WindowUIRender.cpp.o
+
+src/WindowUIRender.i: src/WindowUIRender.cpp.i
+.PHONY : src/WindowUIRender.i
+
+# target to preprocess a source file
+src/WindowUIRender.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIRender.cpp.i
+.PHONY : src/WindowUIRender.cpp.i
+
+src/WindowUIRender.s: src/WindowUIRender.cpp.s
+.PHONY : src/WindowUIRender.s
+
+# target to generate assembly for a file
+src/WindowUIRender.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/faulken.dir/build.make CMakeFiles/faulken.dir/src/WindowUIRender.cpp.s
+.PHONY : src/WindowUIRender.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -339,18 +723,66 @@ help:
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
+	@echo "... src/GameCommandHistory.o"
+	@echo "... src/GameCommandHistory.i"
+	@echo "... src/GameCommandHistory.s"
+	@echo "... src/GameCommandParsing.o"
+	@echo "... src/GameCommandParsing.i"
+	@echo "... src/GameCommandParsing.s"
+	@echo "... src/GameCommands.o"
+	@echo "... src/GameCommands.i"
+	@echo "... src/GameCommands.s"
+	@echo "... src/GameEffects.o"
+	@echo "... src/GameEffects.i"
+	@echo "... src/GameEffects.s"
+	@echo "... src/GameNavigation.o"
+	@echo "... src/GameNavigation.i"
+	@echo "... src/GameNavigation.s"
 	@echo "... src/GameOver.o"
 	@echo "... src/GameOver.i"
 	@echo "... src/GameOver.s"
+	@echo "... src/GameRooms.o"
+	@echo "... src/GameRooms.i"
+	@echo "... src/GameRooms.s"
 	@echo "... src/MapBase.o"
 	@echo "... src/MapBase.i"
 	@echo "... src/MapBase.s"
+	@echo "... src/MapBaseComputer.o"
+	@echo "... src/MapBaseComputer.i"
+	@echo "... src/MapBaseComputer.s"
+	@echo "... src/MapBaseFacilities.o"
+	@echo "... src/MapBaseFacilities.i"
+	@echo "... src/MapBaseFacilities.s"
+	@echo "... src/MapBaseOffice.o"
+	@echo "... src/MapBaseOffice.i"
+	@echo "... src/MapBaseOffice.s"
+	@echo "... src/MapBaseZero.o"
+	@echo "... src/MapBaseZero.i"
+	@echo "... src/MapBaseZero.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
+	@echo "... src/PlayerActions.o"
+	@echo "... src/PlayerActions.i"
+	@echo "... src/PlayerActions.s"
+	@echo "... src/PlayerSave.o"
+	@echo "... src/PlayerSave.i"
+	@echo "... src/PlayerSave.s"
 	@echo "... src/TitleScreen.o"
 	@echo "... src/TitleScreen.i"
 	@echo "... src/TitleScreen.s"
+	@echo "... src/WindowUI.o"
+	@echo "... src/WindowUI.i"
+	@echo "... src/WindowUI.s"
+	@echo "... src/WindowUIInput.o"
+	@echo "... src/WindowUIInput.i"
+	@echo "... src/WindowUIInput.s"
+	@echo "... src/WindowUIOutput.o"
+	@echo "... src/WindowUIOutput.i"
+	@echo "... src/WindowUIOutput.s"
+	@echo "... src/WindowUIRender.o"
+	@echo "... src/WindowUIRender.i"
+	@echo "... src/WindowUIRender.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
