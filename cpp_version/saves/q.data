@@ -1,0 +1,10 @@
+{
+    "level": 4,
+    "loot": {
+        "ID badge": "The badge emits a faint glow. Hmmmm...",
+        "flashlight": "automatically turns on in low light.",
+        "key": "A large heavy key.",
+        "paper": "You see a small piece of paper. The writing makes no sense."
+    },
+    "name": "q"
+}

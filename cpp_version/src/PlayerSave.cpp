@@ -76,8 +76,8 @@ void Player::saveGame(int position) {
         file.close();
 
         if (ui) {
-            ui->printLine("Game Save Successful.");
-            ui->printLine("Saved: " + saveJson.dump(4));
+            ui->printLine("Game Save Successful!");
+           // ui->printLine("Saved: " + saveJson.dump(4));
         }
     } catch (const std::exception& e) {
         if (ui) {
@@ -128,8 +128,8 @@ void Player::loadGame(Game* game) {
         }
 
         if (ui) {
-            ui->printLine("Loaded save data:");
-            ui->printLine(saveJson.dump(4));
+            ui->printLine("Successfully loaded game save data!");
+            //ui->printLine(saveJson.dump(4));
         }
     } catch (const std::exception& e) {
         if (ui) {

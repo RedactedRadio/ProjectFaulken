@@ -54,8 +54,10 @@ int TitleScreen::display() {
     if (ui) choice = ui->readLine();
     
     if (choice == "1") {
+        clearScreen();
         return 1;
     } else if (choice == "2") {
+        clearScreen();
         return 2;
     } else if (choice == "X" || choice == "x") {
         clearScreen();

@@ -21,13 +21,13 @@ void GameOver::gameOverPrint(const std::string& text) {
 void GameOver::gameOverTxt() {
     clearScreen();
     gameOverPrint(" ██████   █████  ███    ███ ███████      ██████  ██    ██ ███████ ██████\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    //std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint("██       ██   ██ ████  ████ ██          ██    ██ ██    ██ ██      ██   ██\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    //std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint("██   ███ ███████ ██ ████ ██ █████       ██    ██ ██    ██ █████   ██████\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    //std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint("██    ██ ██   ██ ██  ██  ██ ██          ██    ██  ██  ██  ██      ██   ██\n");
-    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    //std::this_thread::sleep_for(std::chrono::milliseconds(50));
     gameOverPrint(" ██████  ██   ██ ██      ██ ███████      ██████    ████   ███████ ██   ██\n");
     if (ui) ui->printLine("\nGoodbye!");
     exit(0);

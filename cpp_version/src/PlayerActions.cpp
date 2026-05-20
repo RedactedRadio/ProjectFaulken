@@ -8,10 +8,10 @@ void Player::inventory() const {
         ui->printLine("===========================================================\n");
         for (const auto& [key, value] : loot) {
             if (key == "paper") {
-                ui->printLine(key + "An encrypted code is written on this small piece of paper.");
-                ui->printLine(" It reads... EPEbddftt.");
+                ui->printLine(key + " - An encrypted code, EPEbddftt, is written on this paper.");
+                
             } else {
-                ui->printLine(key + "     -     " + value);
+                ui->printLine(key + " - " + value);
             }
         }
     }
@@ -21,7 +21,7 @@ void Player::take(const std::map<std::string, std::string>& items) {
     if (items.empty()) {
         if (ui) {
             ui->setColor("\033[90m");
-            ui->printLine("\nNothing to take from here. Let's keep moving.");
+            ui->printLine("\nNothing more to take from here. Let's keep moving.");
             ui->resetColor();
         }
         return;
@@ -94,7 +94,7 @@ void Player::look(
     if (playerLoot.find("flashlight") == playerLoot.end()) {
         if (ui) {
             ui->setColor("\033[90m");
-            ui->printLine("Its too dark to <look> for anything! \n We need the flashlight to see.");
+            ui->printLine("Its too dark to <look> for anything! \n We need the FLASHLIGHT to see.");
             ui->resetColor();
         }
         return;
@@ -111,7 +111,7 @@ void Player::look(
     if (allItemsTaken && !items.empty()) {
         if (ui) {
             ui->setColor("\033[90m");
-            ui->printLine("Nothing to see here. Let's keep moving.");
+            ui->printLine("Nothing more to look at. Let's keep moving.");
             ui->resetColor();
         }
         return;
@@ -119,7 +119,7 @@ void Player::look(
 
     switch (pos) {
         case 1:
-            if (ui) ui->printLine("You <look> down at the ID BADGE. You should <take> it!");
+            if (ui) ui->printLine("You <look> down at the ID BADGE. \nYou should <take> it!");
             if (ui) ui->printLine("Hey! We really need to find the elevator.");
             return;
         case 2:
@@ -136,7 +136,7 @@ void Player::look(
             if (ui) ui->printLine("Maybe we can decode the code on the [paper].");
             return;
         case 6:
-            if (ui) ui->printLine("This must be the security center. You see a KEY! This must fit something important. <take> it!");
+            if (ui) ui->printLine("This must be the security center. You see a KEY! This must fit something important. \nProlly better <take> it with you!");
             if (ui) ui->printLine("The elevator is on the <north> wall of the security center.");
             return;
         case 8:
@@ -158,13 +158,12 @@ void Player::look(
             if (ui) ui->printLine("You can <take> the batteries, but the Olliebeans will always remain.");
             return;
         case 14:
-            if (ui) ui->printLine("You enter the control room and look up at the tall ceilings. They must be 15-20 feet tall!");
-            if (ui) ui->printLine("Among the heavy cables running floor to ceiling, you notice a giant switchgear with a lock securing the actuator.");
-            if (ui) ui->printLine("If you had the <key> you could <unlock> the switchgear.");
+            if (ui) ui->printLine("Among the heavy cables running floor to ceiling, you notice \na giant switchgear, with a lock securing the actuator.");
+            if (ui) ui->printLine("If you had the KEY you could <unlock> the switchgear.");
             return;
         default:
             if (items.empty()) {
-                if (ui) ui->printLine("Nothing to see here. Let's keep moving.");
+                if (ui) ui->printLine("Nothing more to see here. Let's keep moving.");
             } else {
                 if (ui) ui->printLine("Oopsie! Well, this is really embarassing...");
                 if (ui) ui->printLine(std::to_string(pos));

@@ -155,8 +155,10 @@ void Game::initRooms() {
         },
         {},
         [this]() {
-            ui->printLine("As your flashlight illuminates the space,\n this is a mechanical room");
-            ui->printLine("with two large electrical switches secured \nby large padlocks.");
+            ui->printLine("As your flashlight illuminates this large room, You notice the high ceilings.");
+            ui->printLine("They must be 20 feet tall! Your light scans massive cables running into the room.");
+            ui->printLine("You follow the cables up to a giant switchgear, secured by large locks.");
+            ui->printLine("You wonder what those switches <energize>?\n");
         }
     };
 }

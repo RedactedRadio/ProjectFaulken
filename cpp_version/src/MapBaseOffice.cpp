@@ -31,7 +31,7 @@ void MapBase::mapOff(IGameUI* ui) {
     #                ###       #                #          ###         #
     ####################################################################)";
     printMap(ui, map);
-    if (ui) ui->printLine("'X' denotes current position.");
+    if (ui) ui->printLine("\n    'X' denotes current position.");
 }
 
 void MapBase::mapStair(IGameUI* ui) {
@@ -64,7 +64,7 @@ void MapBase::mapStair(IGameUI* ui) {
     #                ###      ###              ###         ###         #
     ####################################################################)";
     printMap(ui, map);
-    if (ui) ui->printLine("'X' denotes current position.");
+    if (ui) ui->printLine("\n    'X' denotes current position.");
 }
 
 void MapBase::mapCor(IGameUI* ui) {
@@ -97,5 +97,5 @@ void MapBase::mapCor(IGameUI* ui) {
     #                ###      ###              ###         ###         #
     ####################################################################)";
     printMap(ui, map);
-    if (ui) ui->printLine("'X' denotes current position. (Corridor area)");
+    if (ui) ui->printLine("\n    'X' denotes current position. (Corridor area)");
 }

@@ -30,7 +30,7 @@ void MapBase::mapZc(IGameUI* ui) {
     #                ###      ###              ###         ###         #
     ##################.#################################################)";
     printMap(ui, map);
-    if (ui) ui->printLine("'X' denotes current position.");
+    if (ui) ui->printLine("\n    'X' denotes current position.");
 }
 
 void MapBase::mapZw(IGameUI* ui) {
@@ -63,7 +63,7 @@ void MapBase::mapZw(IGameUI* ui) {
     #                ###       #                #          ###         #
     ##################.#################################################)";
     printMap(ui, map);
-    if (ui) ui->printLine("'X' denotes current position.");
+    if (ui) ui->printLine("\n    'X' denotes current position.");
 }
 
 void MapBase::mapZe(IGameUI* ui) {
@@ -96,5 +96,5 @@ void MapBase::mapZe(IGameUI* ui) {
     #                #.#       #                #          #.#         #
     ##################.#####################################.###########)";
     printMap(ui, map);
-    if (ui) ui->printLine("'X' denotes current position.");
+    if (ui) ui->printLine("\n    'X' denotes current position.");
 }
