@@ -1,0 +1,46 @@
+-- SDL2 and SDL2_ttf found: building windowed UI support
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/blackflag/code/ProjectFaulken/cpp_version/build
+[  4%] Building CXX object CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o
+[  8%] Building CXX object CMakeFiles/faulken.dir/src/MapBase.cpp.o
+[ 12%] Building CXX object CMakeFiles/faulken.dir/src/MapBaseComputer.cpp.o
+[ 16%] Building CXX object CMakeFiles/faulken.dir/src/MapBaseFacilities.cpp.o
+[ 20%] Building CXX object CMakeFiles/faulken.dir/src/MapBaseOffice.cpp.o
+[ 24%] Building CXX object CMakeFiles/faulken.dir/src/MapBaseZero.cpp.o
+[ 28%] Building CXX object CMakeFiles/faulken.dir/src/TitleScreen.cpp.o
+/home/blackflag/code/ProjectFaulken/cpp_version/src/ConsoleUI.cpp:39:13: error: no declaration matches ‘std::string ConsoleUI::readKey()’
+   39 | std::string ConsoleUI::readKey() {
+      |             ^~~~~~~~~
+/home/blackflag/code/ProjectFaulken/cpp_version/src/ConsoleUI.cpp:39:13: note: no functions named ‘std::string ConsoleUI::readKey()’
+In file included from /home/blackflag/code/ProjectFaulken/cpp_version/src/ConsoleUI.cpp:1:
+/home/blackflag/code/ProjectFaulken/cpp_version/include/ConsoleUI.h:8:7: note: ‘class ConsoleUI’ defined here
+    8 | class ConsoleUI : public IGameUI {
+      |       ^~~~~~~~~
+[ 32%] Building CXX object CMakeFiles/faulken.dir/src/WindowUI.cpp.o
+make[2]: *** [CMakeFiles/faulken.dir/build.make:146: CMakeFiles/faulken.dir/src/ConsoleUI.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp: In member function ‘void TitleScreen::slowPrint(const std::string&, double)’:
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:20:18: error: ‘cout’ is not a member of ‘std’
+   20 |             std::cout << c;
+      |                  ^~~~
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:5:1: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+    4 | #include <thread>
+  +++ |+#include <iostream>
+    5 | 
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:21:18: error: ‘cout’ is not a member of ‘std’
+   21 |             std::cout.flush();
+      |                  ^~~~
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:21:18: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp: In member function ‘void TitleScreen::typingPrint(const std::string&, double)’:
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:33:18: error: ‘cout’ is not a member of ‘std’
+   33 |             std::cout << c;
+      |                  ^~~~
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:33:18: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:34:18: error: ‘cout’ is not a member of ‘std’
+   34 |             std::cout.flush();
+      |                  ^~~~
+/home/blackflag/code/ProjectFaulken/cpp_version/src/TitleScreen.cpp:34:18: note: ‘std::cout’ is defined in header ‘<iostream>’; did you forget to ‘#include <iostream>’?
+make[2]: *** [CMakeFiles/faulken.dir/build.make:342: CMakeFiles/faulken.dir/src/TitleScreen.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/faulken.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
